@@ -124,8 +124,9 @@ export class MarkdownLatexRenderer {
       
       if (startDelim === '$' && endDelim === '$') {
         // 特殊处理单美元符号
-        // 支持多行内容，但区分行内和块级
-        regex = /(?<!\$)\$(?!\$)([\s\S]*?)\$(?!\$)/g;
+        // 排除转义的 \$ 和双美元符号 $$
+        // 使用负向后查找排除 \$ 和前面的 $
+        regex = /(?<!\\)(?<!\$)\$(?!\$)([\s\S]*?)(?<!\\)\$(?!\$)/g;
       } else {
         regex = new RegExp(
           escapeRegExp(startDelim) + '([\\s\\S]*?)' + escapeRegExp(endDelim),
