@@ -34,9 +34,9 @@ export class MarkdownPdfGUI {
     this.app.use('/static', express.static(path.join(__dirname, '../web')));
     this.app.use('/output', express.static(this.outputDir));
     
-    // JSON解析
-    this.app.use(express.json());
-    this.app.use(express.urlencoded({ extended: true }));
+    // JSON解析 - 允许大文件
+    this.app.use(express.json({ limit: '500mb' }));
+    this.app.use(express.urlencoded({ extended: true, limit: '500mb' }));
 
     // 文件上传配置
     const storage = multer.diskStorage({
@@ -61,7 +61,7 @@ export class MarkdownPdfGUI {
         }
       },
       limits: {
-        fileSize: 10 * 1024 * 1024 // 10MB
+        fileSize: Infinity // 允许无限大小的文件
       }
     });
   }
