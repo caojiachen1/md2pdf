@@ -18,6 +18,9 @@
     "check-numbers": "node check-missing-numbers.js",
     "check-numbers-gui": "node check-missing-numbers-gui-server.js",
     "start:check-numbers-gui": "node check-missing-numbers-gui-server.js",
+    "generate-icons": "node generate-icons.js",
+    "check-pwa": "node check-pwa.js",
+    "pwa-setup": "echo 'Visit http://localhost:PORT/icon-generator.html to generate PWA icons'",
     "build": "echo 'No build step required for this project'",
     "test": "echo 'No tests specified'"
   },
@@ -42,8 +45,19 @@
   "files": [
     "src/",
     "assets/",
+    "web/",
+    "merge-web/",
+    "katex-web/",
+    "check-numbers-web/",
+    "icons/",
+    "manifest.json",
+    "service-worker.js",
+    "pwa-register.js",
+    "icon-generator.js",
+    "icon-generator.html",
     "md2pdf.js",
     "README.md",
+    "PWA-README.md",
     "LICENSE"
   ],
   "keywords": [
@@ -57,11 +71,16 @@
     "formula",
     "document",
     "offline",
-    "local"
+    "local",
+    "pwa",
+    "progressive-web-app",
+    "mobile",
+    "responsive"
   ],
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
+    "canvas": "^3.2.0",
     "chalk": "^4.1.2",
     "commander": "^11.1.0",
     "cors": "^2.8.5",

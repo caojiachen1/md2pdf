@@ -2,7 +2,20 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="合并多个 Markdown 文件并转换为 PDF">
+    <meta name="theme-color" content="#667eea">
+    
+    <!-- PWA 支持 -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="文件合并">
+    
+    <!-- iOS 图标 -->
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    
     <title>文件合并转换器</title>
     <style>
         * {
@@ -1285,5 +1298,8 @@
         // 初始化应用
         const mergeGUI = new MergeGUI();
     </script>
+    
+    <!-- PWA 注册脚本 -->
+    <script src="/pwa-register.js"></script>
 </body>
 </html>

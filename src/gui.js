@@ -30,8 +30,22 @@ export class MarkdownPdfGUI {
    * 设置中间件
    */
   setupMiddleware() {
-    // 静态文件服务
-    this.app.use('/static', express.static(path.join(__dirname, '../web')));
+    // 静态文件服务 - 添加自定义 MIME 类型
+    const staticOptions = {
+      setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.webmanifest') || filePath.endsWith('manifest.json')) {
+          res.setHeader('Content-Type', 'application/manifest+json');
+        } else if (filePath.endsWith('.js')) {
+          res.setHeader('Content-Type', 'application/javascript');
+        }
+      }
+    };
+    
+    // 提供根目录的 PWA 文件
+    this.app.use(express.static(path.join(__dirname, '..'), staticOptions));
+    
+    // 提供 web 目录
+    this.app.use('/static', express.static(path.join(__dirname, '../web'), staticOptions));
     this.app.use('/output', express.static(this.outputDir));
     
     // JSON解析 - 允许大文件

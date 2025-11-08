@@ -18,6 +18,8 @@ Convert Markdown files with LaTeX math formulas to beautiful PDFs.
 - **Math formula spacing control (tight, normal, loose, relaxed or custom values)**
 - Modular architecture
 - CLI and programmatic usage
+- **📱 PWA support - Install on mobile devices, work offline**
+- **🌐 Visual web interface with drag & drop**
 
 ## Installation
 
@@ -239,6 +241,43 @@ Before converting to PDF, use the KaTeX checker to validate your formulas:
 ### Fallback behavior
 - When KaTeX throws on unsupported commands, we render with MathJax (server-side) and embed CHTML directly.
 - No network required; PDF export only waits a small delay for layout stabilization.
+
+## 📱 PWA Support
+
+This application now supports Progressive Web App (PWA) features:
+
+### Features
+- **📲 Install to home screen** - Works like a native app on mobile devices
+- **🔄 Offline support** - Continue working without internet connection
+- **⚡ Fast loading** - Cached resources load instantly
+- **🎨 Native feel** - Full-screen experience without browser UI
+- **🔔 Notifications** - (Coming soon) Get notified when conversions complete
+
+### Installation
+
+#### Mobile (iOS/Android)
+1. Start any GUI server (e.g., `npm run gui`)
+2. Open in browser (Chrome/Safari)
+3. Tap "Install" banner or "Add to Home Screen"
+
+#### Desktop (Chrome/Edge)
+1. Start any GUI server
+2. Click the install icon (⊕) in the address bar
+3. Click "Install"
+
+### Generate PWA Icons
+```bash
+# Method 1: Browser-based (no dependencies)
+npm run gui
+# Visit http://localhost:3000/icon-generator.html
+# Click "生成图标" and "下载所有图标"
+
+# Method 2: Node.js script (requires canvas)
+npm install canvas
+node generate-icons.js
+```
+
+For detailed PWA documentation, see [PWA-README.md](./PWA-README.md)
 
 ## Project Structure
 
