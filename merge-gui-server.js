@@ -11,6 +11,7 @@ import * as path from 'path';
 import * as fs from 'fs/promises';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { MarkdownToPdfConverter } from './src/converter.js';
+import { ensureDir } from './src/utils.js';
 import chalk from 'chalk';
 import cors from 'cors';
 import { WebSocketServer } from 'ws';
@@ -92,7 +93,7 @@ class MergeGUIServer {
     // 文件上传配置
     const storage = multer.diskStorage({
       destination: async (req, file, cb) => {
-        await this.ensureDir(this.uploadsDir);
+        await ensureDir(this.uploadsDir);
         cb(null, this.uploadsDir);
       },
       filename: (req, file, cb) => {
@@ -217,7 +218,7 @@ class MergeGUIServer {
         const mergedContent = await this.mergeMarkdownFiles(sortedFiles);
 
         // 创建临时合并文件
-        await this.ensureDir(this.tempDir);
+        await ensureDir(this.tempDir);
         const tempPath = path.join(this.tempDir, `merged-${Date.now()}.md`);
         await fs.writeFile(tempPath, mergedContent, 'utf-8');
 
@@ -226,7 +227,7 @@ class MergeGUIServer {
         const pdfName = outputName || `merged-document-${timestamp}.pdf`;
         const pdfPath = path.join(this.outputDir, pdfName);
         
-        await this.ensureDir(this.outputDir);
+        await ensureDir(this.outputDir);
 
         const converter = new MarkdownToPdfConverter({
           reuseInstance: true
@@ -296,7 +297,7 @@ class MergeGUIServer {
     // 获取历史文件列表
     this.app.get('/history', async (req, res) => {
       try {
-        await this.ensureDir(this.outputDir);
+        await ensureDir(this.outputDir);
         const files = await fs.readdir(this.outputDir);
         const pdfFiles = files.filter(file => file.endsWith('.pdf'));
         
@@ -409,17 +410,6 @@ class MergeGUIServer {
     }
     
     return 0;
-  }
-
-  /**
-   * 确保目录存在
-   */
-  async ensureDir(dirPath) {
-    try {
-      await fs.access(dirPath);
-    } catch {
-      await fs.mkdir(dirPath, { recursive: true });
-    }
   }
 
   /**

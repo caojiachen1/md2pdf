@@ -8,32 +8,7 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import chalk from 'chalk';
-
-/**
- * 从文件名中提取数字
- * @param {string} filename - 文件名
- * @returns {Array} 数字数组
- */
-function extractNumbers(filename) {
-  const numbers = filename.match(/\d+/g);
-  return numbers ? numbers.map(num => parseInt(num, 10)) : [];
-}
-
-/**
- * 从文件名中提取主要数字（通常是第一个或最大的数字）
- * @param {string} filename - 文件名
- * @returns {number|null} 主要数字
- */
-function extractMainNumber(filename) {
-  const numbers = extractNumbers(filename);
-  if (numbers.length === 0) return null;
-  
-  // 策略1: 使用第一个数字
-  // return numbers[0];
-  
-  // 策略2: 使用最大的数字（适合页码等场景）
-  return Math.max(...numbers);
-}
+import { extractNumbers, extractMainNumber } from './src/utils.js';
 
 /**
  * 检测文件夹中的文件

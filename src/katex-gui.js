@@ -7,7 +7,7 @@ import multer from 'multer';
 import * as path from 'path';
 import * as fs from 'fs/promises';
 import { fileURLToPath } from 'url';
-import { fileExists } from './utils.js';
+import { fileExists, ensureDir } from './utils.js';
 import katex from 'katex';
 import { callLMStudioAPI, callOllamaAPI, callOpenAIAPI, LLM_PROVIDERS, setOpenAIConfig } from '../llm-fixer.js';
 
@@ -739,22 +739,11 @@ export class KatexCheckGUI {
   }
 
   /**
-   * 确保目录存在
-   */
-  async ensureDir(dirPath) {
-    try {
-      await fs.access(dirPath);
-    } catch {
-      await fs.mkdir(dirPath, { recursive: true });
-    }
-  }
-
-  /**
    * 启动服务器
    */
   async start() {
-    await this.ensureDir(this.uploadsDir);
-    await this.ensureDir(this.outputDir);
+    await ensureDir(this.uploadsDir);
+    await ensureDir(this.outputDir);
     
     return new Promise((resolve) => {
       this.server = this.app.listen(this.port, () => {

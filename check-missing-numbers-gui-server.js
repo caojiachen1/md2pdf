@@ -11,6 +11,7 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import chalk from 'chalk';
+import { extractNumbers, extractMainNumber } from './src/utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,34 +25,6 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' })); // 增加URL编�
 
 // 静态文件服务
 app.use('/static', express.static(path.join(__dirname, 'check-numbers-web')));
-
-/**
- * 从文件名中提取数字
- * @param {string} filename - 文件名
- * @returns {Array} 数字数组
- */
-function extractNumbers(filename) {
-  const numbers = filename.match(/\d+/g);
-  return numbers ? numbers.map(num => parseInt(num, 10)) : [];
-}
-
-/**
- * 从文件名中提取主要数字（通常是第一个或最大的数字）
- * @param {string} filename - 文件名
- * @param {string} strategy - 提取策略: 'first' | 'max'
- * @returns {number|null} 主要数字
- */
-function extractMainNumber(filename, strategy = 'max') {
-  const numbers = extractNumbers(filename);
-  if (numbers.length === 0) return null;
-  
-  if (strategy === 'first') {
-    return numbers[0];
-  } else {
-    // 策略: 使用最大的数字（适合页码等场景）
-    return Math.max(...numbers);
-  }
-}
 
 /**
  * 检测文件夹中的文件

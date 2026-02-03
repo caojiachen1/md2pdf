@@ -8,7 +8,7 @@ import * as path from 'path';
 import * as fs from 'fs/promises';
 import { fileURLToPath } from 'url';
 import { convertMarkdownToPdf, convertMarkdownToHtml } from './converter.js';
-import { fileExists } from './utils.js';
+import { fileExists, ensureDir } from './utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -263,22 +263,11 @@ export class MarkdownPdfGUI {
   }
 
   /**
-   * 确保目录存在
-   */
-  async ensureDir(dirPath) {
-    try {
-      await fs.access(dirPath);
-    } catch {
-      await fs.mkdir(dirPath, { recursive: true });
-    }
-  }
-
-  /**
    * 启动服务器
    */
   async start() {
-    await this.ensureDir(this.uploadsDir);
-    await this.ensureDir(this.outputDir);
+    await ensureDir(this.uploadsDir);
+    await ensureDir(this.outputDir);
     
     return new Promise((resolve) => {
       this.server = this.app.listen(this.port, () => {

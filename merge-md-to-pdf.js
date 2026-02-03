@@ -8,43 +8,8 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { MarkdownToPdfConverter } from './src/converter.js';
+import { naturalSort } from './src/utils.js';
 import chalk from 'chalk';
-
-/**
- * 自然排序比较函数，正确处理数字顺序
- * @param {string} a - 第一个文件名
- * @param {string} b - 第二个文件名
- * @returns {number} 排序结果
- */
-function naturalSort(a, b) {
-  // 将文件名分解为数字和非数字部分
-  const regex = /(\d+|\D+)/g;
-  const aParts = a.match(regex) || [];
-  const bParts = b.match(regex) || [];
-  
-  const maxLength = Math.max(aParts.length, bParts.length);
-  
-  for (let i = 0; i < maxLength; i++) {
-    const aPart = aParts[i] || '';
-    const bPart = bParts[i] || '';
-    
-    // 如果两个部分都是数字，按数字比较
-    if (/^\d+$/.test(aPart) && /^\d+$/.test(bPart)) {
-      const numA = parseInt(aPart, 10);
-      const numB = parseInt(bPart, 10);
-      if (numA !== numB) {
-        return numA - numB;
-      }
-    } else {
-      // 按字符串比较
-      if (aPart !== bPart) {
-        return aPart.localeCompare(bPart);
-      }
-    }
-  }
-  
-  return 0;
-}
 
 /**
  * 获取文件夹中的所有Markdown文件并按自然顺序排序
