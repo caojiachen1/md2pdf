@@ -120,7 +120,7 @@ function showHelp() {
 async function main() {
   const args = process.argv.slice(2);
   
-  // 检查帮助参�?
+  // 检查帮助参数
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     showHelp();
     if (args.length === 0) {

@@ -78,7 +78,7 @@ function advancedSyntaxCheck(content) {
     if (content.includes(cmd)) {
       warnings.push({
         type: 'unsupported_command',
-        message: `使用了可能不兼容的命�? ${cmd}`,
+        message: `使用了可能不兼容的命令 ${cmd}`,
         suggestion: '考虑使用KaTeX支持的替代方案'
       });
     }
@@ -114,7 +114,7 @@ import {
 } from './llm-fixer.js';
 
 /**
- * 数学公式分隔符配�?
+ * 数学公式分隔符配置
  */
 const MATH_DELIMITERS = {
   inline: [
@@ -138,7 +138,7 @@ const KATEX_CONFIG = {
 };
 
 /**
- * 转义正则表达式特殊字�?
+ * 转义正则表达式特殊字符
  */
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -305,7 +305,7 @@ function extractMathExpressions(content) {
 /**
  * 检测单个数学公式的KaTeX渲染（详细模式）
  * @param {Object} mathExpr - 数学公式对象
- * @returns {Object} 检测结�?
+ * @returns {Object} 检测结果
  */
 function checkMathExpression(mathExpr) {
   const result = {
@@ -344,7 +344,7 @@ function checkMathExpression(mathExpr) {
 /**
  * 检测单个Markdown文件（快速模式）
  * @param {string} filePath - 文件路径
- * @returns {Object} 检测结�?
+ * @returns {Object} 检测结果
  */
 async function quickCheckFile(filePath) {
   try {
@@ -376,7 +376,7 @@ async function quickCheckFile(filePath) {
 /**
  * 检测单个Markdown文件（详细模式）
  * @param {string} filePath - 文件路径
- * @returns {Object} 检测结�?
+ * @returns {Object} 检测结果
  */
 async function detailedCheckFile(filePath) {
   try {
@@ -579,7 +579,7 @@ async function generateQuickReport(results, config = {}) {
         console.log(chalk.yellow(`   公式 ${errorIndex + 1}: ${error.formula}`));
         console.log(chalk.red(`   错误: ${error.error}`));
         
-        // 如果启用了自动纠�?
+        // 如果启用了自动纠正
         if (config.autoFix) {
           const fixed = await fixSingleFormulaError(error, result.file, {
             autoConfirm: config.autoConfirm
@@ -637,7 +637,7 @@ async function generateQuickReport(results, config = {}) {
 
 /**
  * 生成详细报告
- * @param {Array} results - 检测结果数�?
+ * @param {Array} results - 检测结果数组
  */
 /**
  * 生成详细报告
@@ -692,7 +692,7 @@ async function generateDetailedReport(results, config = {}) {
         console.log(chalk.yellow(`   公式: ${expr.raw || expr.content || 'N/A'}`));
         console.log(chalk.red(`   错误: ${error.error.message}`));
         
-        // 如果启用了自动纠�?
+        // 如果启用了自动纠正
         if (config.autoFix && expr.raw && expr.raw !== 'FILE_READ_ERROR') {
           const fixed = await fixSingleDetailedFormulaError(error, result.file, {
             autoConfirm: config.autoConfirm
@@ -838,7 +838,7 @@ function showHelp() {
   console.log(chalk.white('  node katex-check.js file1.md file2.md file3.md        # 检查多个文件'));
   console.log(chalk.white('  node katex-check.js ./docs README.md                  # 混合：文件夹+文件'));
   console.log(chalk.white('  node katex-check.js ./docs --detailed                 # 详细模式'));
-  console.log(chalk.white('  node katex-check.js ./docs -f                         # 快速模�?+ 纠错'));
+  console.log(chalk.white('  node katex-check.js ./docs -f                         # 快速模式+ 纠错'));
   console.log(chalk.white('  node katex-check.js file.md -f -y                     # 文件 + 自动纠错'));
   console.log(chalk.white('  node katex-check.js ./docs -d -f --concurrency=8      # 详细模式 + 纠错'));
   
@@ -887,7 +887,7 @@ async function main() {
       console.log(chalk.blue(`🔄 并发数 ${config.concurrency}`));
     }
     
-    // 开始检�?
+    // 开始检测
     console.log(chalk.cyan(`\n🔍 开始检测KaTeX渲染 (${mode}模式)...`));
     const startTime = Date.now();
     

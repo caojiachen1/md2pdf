@@ -460,7 +460,7 @@
         <div class="main-content">
             <div class="upload-section">
                 <h2 class="section-title">
-                    📤 文件上传与配�?
+                    📤 文件上传与配置
                 </h2>
                 
                 <div class="upload-area" onclick="document.getElementById('fileInput').click()">
@@ -584,7 +584,7 @@
     <script>
         let selectedFile = null;
         
-        // 初始�?
+        // 初始化
         document.addEventListener('DOMContentLoaded', function() {
             loadHistory();
             setupEventListeners();
@@ -663,7 +663,7 @@
             const progressBar = document.getElementById('progressBar');
             const progressFill = document.getElementById('progressFill');
 
-            // 显示进度�?
+            // 显示进度条
             convertBtn.disabled = true;
             convertBtn.textContent = '🔄 转换中..';
             progressBar.style.display = 'block';
@@ -702,7 +702,7 @@
             } catch (error) {
                 showResult('error', '转换失败: ' + error.message);
             } finally {
-                // 恢复按钮状�?
+                // 恢复按钮状态
                 setTimeout(() => {
                     convertBtn.disabled = false;
                     convertBtn.textContent = '🚀 开始转换';
