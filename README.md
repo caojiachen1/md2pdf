@@ -94,16 +94,37 @@ The system will automatically detect available providers and use the best option
 - LMStudio: `qwen/qwen3-4b-thinking-2507`, etc.
 ```
 
-### LLM Auto-Correction Setup
+### GUI & Web Interfaces
 
-The auto-correction feature requires LMStudio running locally:
+This repository includes visual web UIs and PWA support for interactive workflows.
 
-1. Install and run [LMStudio](https://lmstudio.ai/)
-2. Load a thinking model (e.g., `qwen/qwen3-4b-thinking-2507`)
-3. Start the local server at `http://localhost:1234`
-4. Use `--auto-fix` flag to enable auto-correction
+- `katex-web/` - KaTeX 公式修复的单页 Web UI（可直接打开 `katex-web/index.html` 或通过静态服务器访问）。
+- `merge-web/` - Markdown 合并与预览的 Web UI。
+- `web/` - 主站点与轻量 GUI（包含文件上传与转换演示）。
 
-The LLM will analyze LaTeX errors and suggest corrections, which you can review and apply.
+常用脚本：
+
+- 启动 PDF GUI：
+
+```bash
+npm run gui
+```
+
+- 启动合并 GUI：
+
+```bash
+npm run merge-gui
+```
+
+- 启动或打开 KaTeX 公式修复界面（通过 GUI Launcher）：
+
+```bash
+npm run latex-fix
+# 或
+npm run formula-fix
+```
+
+PWA：在启动任一 GUI 服务器并打开页面后，可在浏览器中安装为应用（Add to Home Screen / Install）。
 
 ## CLI Usage
 
@@ -149,15 +170,15 @@ node cli/md2pdf.js input.md --chinese-font yahei     # 微软雅黑 (Microsoft Y
 node cli/md2pdf.js input.md --font-weight light      # 细体 (300)
 node cli/md2pdf.js input.md --font-weight normal     # 正常 (400, default)
 node cli/md2pdf.js input.md --font-weight medium     # 中等 (500)
-node cli/md2pdf.js input.md --font-weight semibold   # 半粗�?(600)
+node cli/md2pdf.js input.md --font-weight semibold   # 半粗体(600)
 node cli/md2pdf.js input.md --font-weight bold       # 粗体 (700)
-node cli/md2pdf.js input.md --font-weight black      # 超粗�?(900)
+node cli/md2pdf.js input.md --font-weight black      # 超粗体(900)
 node cli/md2pdf.js input.md --font-weight 600        # Custom weight
 
 # Line spacing options
-node cli/md2pdf.js input.md --line-spacing tight     # 紧密行间�?(1.2)
-node cli/md2pdf.js input.md --line-spacing normal    # 正常行间�?(1.6, default)
-node cli/md2pdf.js input.md --line-spacing loose     # 宽松行间�?(2.0)
+node cli/md2pdf.js input.md --line-spacing tight     # 紧密行间距(1.2)
+node cli/md2pdf.js input.md --line-spacing normal    # 正常行间距(1.6, default)
+node cli/md2pdf.js input.md --line-spacing loose     # 宽松行间距(2.0)
 node cli/md2pdf.js input.md --line-spacing relaxed   # 极宽松行间距 (2.4)
 node cli/md2pdf.js input.md --line-spacing 1.8       # Custom line height
 
@@ -165,14 +186,14 @@ node cli/md2pdf.js input.md --line-spacing 1.8       # Custom line height
 node cli/md2pdf.js input.md --paragraph-spacing tight     # 紧密段落间距 (0.5em)
 node cli/md2pdf.js input.md --paragraph-spacing normal    # 正常段落间距 (1em, default)
 node cli/md2pdf.js input.md --paragraph-spacing loose     # 宽松段落间距 (1.5em)
-node cli/md2pdf.js input.md --paragraph-spacing relaxed   # 极宽松段落间�?(2em)
+node cli/md2pdf.js input.md --paragraph-spacing relaxed   # 极宽松段落间距(2em)
 node cli/md2pdf.js input.md --paragraph-spacing 1.2em     # Custom spacing
 
 # Math formula spacing options
 node cli/md2pdf.js input.md --math-spacing tight     # 紧密公式间距 (10px)
 node cli/md2pdf.js input.md --math-spacing normal    # 正常公式间距 (20px, default)
 node cli/md2pdf.js input.md --math-spacing loose     # 宽松公式间距 (30px)
-node cli/md2pdf.js input.md --math-spacing relaxed   # 极宽松公式间�?(40px)
+node cli/md2pdf.js input.md --math-spacing relaxed   # 极宽松公式间距(40px)
 node cli/md2pdf.js input.md --math-spacing 25px      # Custom spacing
 
 # Combined options
@@ -249,7 +270,7 @@ This application now supports Progressive Web App (PWA) features:
 ### Features
 - **📲 Install to home screen** - Works like a native app on mobile devices
 - **🔄 Offline support** - Continue working without internet connection
-- **�?Fast loading** - Cached resources load instantly
+- **⚡Fast loading** - Cached resources load instantly
 - **🎨 Native feel** - Full-screen experience without browser UI
 - **🔔 Notifications** - (Coming soon) Get notified when conversions complete
 
@@ -262,7 +283,7 @@ This application now supports Progressive Web App (PWA) features:
 
 #### Desktop (Chrome/Edge)
 1. Start any GUI server
-2. Click the install icon (�? in the address bar
+2. Click the install icon (🔗) in the address bar
 3. Click "Install"
 
 ### Generate PWA Icons
@@ -270,7 +291,7 @@ This application now supports Progressive Web App (PWA) features:
 # Method 1: Browser-based (no dependencies)
 npm run gui
 # Visit http://localhost:3000/icon-generator.html
-# Click "生成图标" and "下载所有图�?
+# Click "生成图标" and "下载所有图标"
 
 # Method 2: Node.js script (requires canvas)
 npm install canvas
@@ -282,15 +303,15 @@ For detailed PWA documentation, see [PWA-README.md](./PWA-README.md)
 ## Project Structure
 
 ```
-├── src/                         # Core conversion modules
-�?  ├── cli.js                  # Command-line interface
-�?  ├── converter.js            # Main conversion logic
-�?  ├── katex-assets.js         # KaTeX asset management
-�?  └── ...
-├── katex-check.js              # KaTeX formula validator
-├── llm-fixer.js               # LLM auto-correction module (LMStudio & Ollama)
-├── test-ollama-integration.js  # Ollama integration test
-├── md2pdf.js                  # Main CLI entry point
-├── OLLAMA_INTEGRATION_GUIDE.md # Ollama setup and usage guide
-└── assets/katex/              # Local KaTeX assets
+LICENSE
+package.json
+README.md
+assets/                # 打包的静态资源（KaTeX 字体等）
+cli/                   # 命令行工具与脚本
+gui/                   # GUI 启动器与服务脚本
+katex-web/             # KaTeX 公式修复的单页 Web UI
+merge-web/             # Markdown 合并/预览 Web UI
+PWA/                   # PWA 相关文件与资源
+src/                   # 核心转换模块（converter、renderer、template 等）
+web/                   # 主站点示例与轻量前端
 ```

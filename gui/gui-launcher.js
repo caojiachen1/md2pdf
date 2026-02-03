@@ -40,10 +40,10 @@ async function main() {
     switch (command) {
       case 'pdf':
         console.log(chalk.cyan.bold(`
-┌─────────────────────────────────────────┐
-│ 🌐 Markdown PDF 可视化界面启动器        │
-│ 📄→📄 直观转换 | 🔍 实时预览 | 📚 历史管理   │
-└─────────────────────────────────────────┘
+┌───────────────────────────────────────────┐
+│ 🌐 Markdown PDF 可视化界面启动器           │
+│ 📄→📄 直观转换 | 🔍 实时预览 | 📚 历史管理│
+└───────────────────────────────────────────┘
 `));
         await startGUI({ port: port || 3000 });
         console.log(chalk.green('\n✅ PDF GUI服务器启动成功'));
@@ -53,8 +53,8 @@ async function main() {
       case 'katex':
         console.log(chalk.cyan.bold(`
 ┌─────────────────────────────────────────┐
-│ 📐 LaTeX公式修复助手 GUI 启动器        │
-│ 🔧 自动纠错 | 📊 错误统计 | 🎯 精准修复     │
+│ 📐 LaTeX公式修复助手 GUI 启动器          │
+│ 🔧 自动纠错 | 📊 错误统计 | 🎯 精准修复  │
 └─────────────────────────────────────────┘
 `));
         const katexGui = await startKatexCheckGUI({ port: port || 3001 });
