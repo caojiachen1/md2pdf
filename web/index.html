@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="将 Markdown 文件转换为 PDF，支持 LaTeX 数学公式">
+    <meta name="description" content="�?Markdown 文件转换�?PDF，支�?LaTeX 数学公式">
     <meta name="theme-color" content="#667eea">
     
     <!-- PWA 支持 -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/pwa/manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -20,7 +20,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
     
-    <title>Markdown to PDF 转换器</title>
+    <title>Markdown to PDF 转换�?/title>
     <style>
         * {
             margin: 0;
@@ -453,20 +453,20 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📄 Markdown to PDF 转换器</h1>
+            <h1>📄 Markdown to PDF 转换�?/h1>
             <p>支持LaTeX数学公式 | 美观排版 | 实时预览</p>
         </div>
 
         <div class="main-content">
             <div class="upload-section">
                 <h2 class="section-title">
-                    📤 文件上传与配置
+                    📤 文件上传与配�?
                 </h2>
                 
                 <div class="upload-area" onclick="document.getElementById('fileInput').click()">
                     <div class="upload-icon">📄</div>
                     <div class="upload-text">
-                        点击选择或拖拽Markdown文件到此处<br>
+                        点击选择或拖拽Markdown文件到此�?br>
                         支持 .md 格式文件
                     </div>
                     <button class="upload-btn" type="button">选择文件</button>
@@ -489,7 +489,7 @@
                             <option value="small">小号</option>
                             <option value="medium">中号</option>
                             <option value="large" selected>大号</option>
-                            <option value="xlarge">特大号</option>
+                            <option value="xlarge">特大�?/option>
                         </select>
                     </div>
                     
@@ -515,23 +515,23 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="margin">页边距</label>
+                        <label for="margin">页边�?/label>
                         <input type="text" id="margin" placeholder="20mm" value="0mm" />
                     </div>
                     
                     <div class="form-group">
-                        <label for="lineSpacing">行间距</label>
+                        <label for="lineSpacing">行间�?/label>
                         <select id="lineSpacing">
                             <option value="tight">紧密</option>
                             <option value="normal" selected>正常</option>
                             <option value="loose">宽松</option>
-                            <option value="relaxed">很宽松</option>
+                            <option value="relaxed">很宽�?/option>
                         </select>
                     </div>
                 </div>
                 
                 <button class="convert-btn" id="convertBtn" disabled>
-                    🚀 开始转换
+                    🚀 开始转�?
                 </button>
                 
                 <div class="progress-bar" id="progressBar">
@@ -543,11 +543,11 @@
 
             <div class="preview-section">
                 <h2 class="section-title">
-                    👁️ 实时预览
+                    👁�?实时预览
                 </h2>
                 
                 <div class="preview-area empty" id="previewArea">
-                    <div>转换完成后，预览将在此显示</div>
+                    <div>转换完成后，预览将在此显�?/div>
                 </div>
             </div>
         </div>
@@ -584,7 +584,7 @@
     <script>
         let selectedFile = null;
         
-        // 初始化
+        // 初始�?
         document.addEventListener('DOMContentLoaded', function() {
             loadHistory();
             setupEventListeners();
@@ -645,7 +645,7 @@
         function updateUploadArea(filename) {
             const uploadArea = document.querySelector('.upload-area');
             uploadArea.innerHTML = `
-                <div class="upload-icon">✅</div>
+                <div class="upload-icon">�?/div>
                 <div class="upload-text">
                     已选择文件: <strong>${filename}</strong><br>
                     点击可重新选择文件
@@ -663,9 +663,9 @@
             const progressBar = document.getElementById('progressBar');
             const progressFill = document.getElementById('progressFill');
 
-            // 显示进度条
+            // 显示进度�?
             convertBtn.disabled = true;
-            convertBtn.textContent = '🔄 转换中...';
+            convertBtn.textContent = '🔄 转换�?..';
             progressBar.style.display = 'block';
             progressFill.style.width = '30%';
 
@@ -702,10 +702,10 @@
             } catch (error) {
                 showResult('error', '转换失败: ' + error.message);
             } finally {
-                // 恢复按钮状态
+                // 恢复按钮状�?
                 setTimeout(() => {
                     convertBtn.disabled = false;
-                    convertBtn.textContent = '🚀 开始转换';
+                    convertBtn.textContent = '🚀 开始转�?;
                     progressBar.style.display = 'none';
                     progressFill.style.width = '0%';
                 }, 1000);
@@ -769,19 +769,19 @@
                             <div class="file-details">
                                 <h4>${file.filename}</h4>
                                 <div class="file-meta">
-                                    ${formatFileSize(file.size)} • ${formatDate(file.created)}
+                                    ${formatFileSize(file.size)} �?${formatDate(file.created)}
                                 </div>
                             </div>
                         </div>
                         <div class="history-actions">
                             <button class="action-btn preview-btn" onclick="previewFile('${file.filename}')">
-                                👁️ 审阅
+                                👁�?审阅
                             </button>
                             <a href="${file.path}" class="action-btn preview-btn" download style="text-decoration: none;">
                                 📥 下载
                             </a>
                             <button class="action-btn delete-btn" onclick="deleteFile('${file.filename}')">
-                                🗑️ 删除
+                                🗑�?删除
                             </button>
                         </div>
                     </div>
@@ -843,7 +843,7 @@
         }
 
         async function deleteFile(filename) {
-            if (!confirm(`确定要删除文件 "${filename}" 吗？`)) {
+            if (!confirm(`确定要删除文�?"${filename}" 吗？`)) {
                 return;
             }
 
@@ -889,6 +889,6 @@
     </script>
     
     <!-- PWA 注册脚本 -->
-    <script src="/pwa-register.js"></script>
+    <script src="/pwa/pwa-register.js"></script>
 </body>
 </html>

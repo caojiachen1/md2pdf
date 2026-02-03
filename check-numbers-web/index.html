@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="文件编号检测工具 - 检测和修复文件编号问题">
+    <meta name="description" content="文件编号检测工�?- 检测和修复文件编号问题">
     <meta name="theme-color" content="#667eea">
     
     <!-- PWA 支持 -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/pwa/manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="编号检测">
+    <meta name="apple-mobile-web-app-title" content="编号检�?>
     
     <!-- iOS 图标 -->
     <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
     
-    <title>文件编号检测工具 - 可视化界面</title>
+    <title>文件编号检测工�?- 可视化界�?/title>
     <style>
         * {
             margin: 0;
@@ -579,24 +579,24 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔍 文件编号检测工具</h1>
-            <p>智能检测文件夹中缺失和重复的文件编号</p>
+            <h1>🔍 文件编号检测工�?/h1>
+            <p>智能检测文件夹中缺失和重复的文件编�?/p>
         </div>
 
         <div class="main-content">
             <div class="form-section">
                 <form id="checkForm">
                     <div class="form-group">
-                        <label for="folderPath">📁 文件夹路径</label>
+                        <label for="folderPath">📁 文件夹路�?/label>
                         <div class="input-group">
-                            <input type="text" id="folderPath" name="folderPath" placeholder="请选择要检测的文件夹..." readonly>
+                            <input type="text" id="folderPath" name="folderPath" placeholder="请选择要检测的文件�?.." readonly>
                             <button type="button" class="btn-browse" id="browseFolderBtn" onclick="openFolderPicker()">
-                                📂 选择文件夹
+                                📂 选择文件�?
                             </button>
                         </div>
-                        <div class="help-text" id="folderPathHelp">💡 点击"选择文件夹"按钮来选择要检测的文件夹</div>
+                        <div class="help-text" id="folderPathHelp">💡 点击"选择文件�?按钮来选择要检测的文件�?/div>
                         
-                        <!-- 隐藏的文件夹选择器 -->
+                        <!-- 隐藏的文件夹选择�?-->
                         <input type="file" id="folderPicker" webkitdirectory directory multiple style="display: none;" onchange="handleFolderSelection(this)">
                         
                         <!-- 快捷路径按钮 -->
@@ -611,30 +611,30 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="fileExtension">📄 文件扩展名过滤</label>
-                            <input type="text" id="fileExtension" name="fileExtension" placeholder=".md, .txt, .pdf 等">
-                            <div class="help-text">留空表示检测所有文件类型</div>
+                            <label for="fileExtension">📄 文件扩展名过�?/label>
+                            <input type="text" id="fileExtension" name="fileExtension" placeholder=".md, .txt, .pdf �?>
+                            <div class="help-text">留空表示检测所有文件类�?/div>
                         </div>
 
                         <div class="form-group">
                             <label for="strategy">🔢 数字提取策略</label>
                             <select id="strategy" name="strategy">
-                                <option value="max">使用最大数字 (推荐)</option>
-                                <option value="first">使用第一个数字</option>
+                                <option value="max">使用最大数�?(推荐)</option>
+                                <option value="first">使用第一个数�?/option>
                             </select>
-                            <div class="help-text">最大数字适合页码等场景</div>
+                            <div class="help-text">最大数字适合页码等场�?/div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="checkbox-group">
                             <input type="checkbox" id="recursive" name="recursive">
-                            <label for="recursive">🗂️ 递归搜索子文件夹</label>
+                            <label for="recursive">🗂�?递归搜索子文件夹</label>
                         </div>
                     </div>
 
                     <button type="submit" class="btn" id="checkBtn">
-                        <span>🚀 开始检测</span>
+                        <span>🚀 开始检�?/span>
                     </button>
                 </form>
             </div>
@@ -647,7 +647,7 @@
             <div class="results" id="results">
                 <!-- 结果摘要 -->
                 <div class="summary">
-                    <h3>📊 检测结果摘要</h3>
+                    <h3>📊 检测结果摘�?/h3>
                     <div class="summary-grid" id="summaryGrid">
                         <!-- 动态生成摘要项 -->
                     </div>
@@ -656,8 +656,8 @@
                 <!-- 缺失数字 -->
                 <div class="details-section" id="missingSection">
                     <div class="details-header" onclick="toggleDetails('missingContent')">
-                        <h4>❌ 缺失的编号</h4>
-                        <span class="toggle">▼</span>
+                        <h4>�?缺失的编�?/h4>
+                        <span class="toggle">�?/span>
                     </div>
                     <div class="details-content" id="missingContent">
                         <div id="missingNumbers"></div>
@@ -667,8 +667,8 @@
                 <!-- 重复数字 -->
                 <div class="details-section" id="duplicateSection">
                     <div class="details-header" onclick="toggleDetails('duplicateContent')">
-                        <h4>⚠️ 重复的编号</h4>
-                        <span class="toggle">▼</span>
+                        <h4>⚠️ 重复的编�?/h4>
+                        <span class="toggle">�?/span>
                     </div>
                     <div class="details-content" id="duplicateContent">
                         <div id="duplicateNumbers"></div>
@@ -679,18 +679,18 @@
                 <div class="details-section" id="filesSection">
                     <div class="details-header" onclick="toggleDetails('filesContent')">
                         <h4>📋 按编号排序的文件列表</h4>
-                        <span class="toggle">▼</span>
+                        <span class="toggle">�?/span>
                     </div>
                     <div class="details-content" id="filesContent">
                         <div class="file-list" id="filesList"></div>
                     </div>
                 </div>
 
-                <!-- 无编号文件 -->
+                <!-- 无编号文�?-->
                 <div class="details-section" id="noNumberSection">
                     <div class="details-header" onclick="toggleDetails('noNumberContent')">
                         <h4>📝 无编号的文件</h4>
-                        <span class="toggle">▼</span>
+                        <span class="toggle">�?/span>
                     </div>
                     <div class="details-content" id="noNumberContent">
                         <div class="file-list" id="noNumberList"></div>
@@ -716,7 +716,7 @@
             await performCheck();
         });
 
-        // 执行检测
+        // 执行检�?
         async function performCheck() {
             const formData = new FormData(checkForm);
             const folderPath = formData.get('folderPath');
@@ -729,10 +729,10 @@
             }
         }
         
-        // 执行增强模式检测
+        // 执行增强模式检�?
         async function performEnhancedCheck(formData) {
             if (!window.selectedFolderInfo) {
-                showError('文件系统句柄信息丢失，请重新选择文件夹');
+                showError('文件系统句柄信息丢失，请重新选择文件�?);
                 return;
             }
             
@@ -743,8 +743,8 @@
                 recursive: formData.get('recursive') === 'on'
             };
 
-            // 显示加载状态
-            showLoading('🚀 正在使用增强模式检测...');
+            // 显示加载状�?
+            showLoading('🚀 正在使用增强模式检�?..');
             hideResults();
             hideError();
 
@@ -761,20 +761,20 @@
 
                 if (result.success) {
                     displayResults(result.data);
-                    showSuccessMessage('✅ 增强模式检测完成！');
+                    showSuccessMessage('�?增强模式检测完成！');
                 } else {
                     showError(result.error);
                 }
 
             } catch (error) {
-                console.error('增强模式检测失败:', error);
-                showError('增强模式检测失败: ' + error.message);
+                console.error('增强模式检测失�?', error);
+                showError('增强模式检测失�? ' + error.message);
             } finally {
                 hideLoading();
             }
         }
         
-        // 执行传统模式检测
+        // 执行传统模式检�?
         async function performTraditionalCheck(formData) {
             const data = {
                 folderPath: formData.get('folderPath'),
@@ -783,7 +783,7 @@
                 recursive: formData.get('recursive') === 'on'
             };
 
-            // 显示加载状态
+            // 显示加载状�?
             showLoading('📁 正在检测文件夹...');
             hideResults();
             hideError();
@@ -806,8 +806,8 @@
                 }
 
             } catch (error) {
-                console.error('检测失败:', error);
-                showError('网络错误或服务器无响应');
+                console.error('检测失�?', error);
+                showError('网络错误或服务器无响�?);
             } finally {
                 hideLoading();
             }
@@ -827,7 +827,7 @@
             // 显示文件列表
             displayFilesList(data.filesWithNumbers);
 
-            // 显示无编号文件
+            // 显示无编号文�?
             displayNoNumberFiles(data.filesWithoutNumbers);
 
             // 根据是否有问题显示不同的样式
@@ -851,7 +851,7 @@
                 },
                 {
                     number: summary.filesWithNumbers,
-                    label: '带编号文件',
+                    label: '带编号文�?,
                     type: 'info'
                 },
                 {
@@ -891,7 +891,7 @@
             const section = document.getElementById('missingSection');
 
             if (missingRanges.length === 0) {
-                container.innerHTML = '<div class="no-issues">✅ 没有发现缺失的编号</div>';
+                container.innerHTML = '<div class="no-issues">�?没有发现缺失的编�?/div>';
                 section.style.display = 'none';
                 return;
             }
@@ -904,7 +904,7 @@
             container.innerHTML = `
                 <p style="margin-bottom: 15px;">检测到以下编号缺失:</p>
                 <div class="missing-ranges">${rangesHtml}</div>
-                <p class="help-text">建议检查这些编号对应的文件是否遗漏或命名不规范。</p>
+                <p class="help-text">建议检查这些编号对应的文件是否遗漏或命名不规范�?/p>
             `;
         }
 
@@ -914,7 +914,7 @@
             const section = document.getElementById('duplicateSection');
 
             if (duplicates.length === 0) {
-                container.innerHTML = '<div class="no-issues">✅ 没有发现重复的编号</div>';
+                container.innerHTML = '<div class="no-issues">�?没有发现重复的编�?/div>';
                 section.style.display = 'none';
                 return;
             }
@@ -922,7 +922,7 @@
             section.style.display = 'block';
             const duplicatesHtml = duplicates.map(dup => `
                 <div class="duplicate-group">
-                    <div class="duplicate-number">编号 ${dup.number} (重复 ${dup.count} 次)</div>
+                    <div class="duplicate-number">编号 ${dup.number} (重复 ${dup.count} �?</div>
                     ${dup.files.map(file => `
                         <div class="file-item">
                             <span class="file-name">${file.name}</span>
@@ -953,7 +953,7 @@
             container.innerHTML = filesHtml;
         }
 
-        // 显示无编号文件
+        // 显示无编号文�?
         function displayNoNumberFiles(filesWithoutNumbers) {
             const container = document.getElementById('noNumberList');
             const section = document.getElementById('noNumberSection');
@@ -988,9 +988,9 @@
             }
         }
 
-        // 显示无问题状态
+        // 显示无问题状�?
         function showNoIssues() {
-            // 默认展开摘要，折叠其他部分
+            // 默认展开摘要，折叠其他部�?
             document.getElementById('missingContent').classList.remove('show');
             document.getElementById('duplicateContent').classList.remove('show');
             document.getElementById('filesContent').classList.add('show');
@@ -999,7 +999,7 @@
             document.querySelector('#filesSection .details-header').classList.add('active');
         }
 
-        // UI 状态管理
+        // UI 状态管�?
         function showLoading(message = '正在检测文件夹...') {
             loading.classList.add('show');
             checkBtn.disabled = true;
@@ -1027,7 +1027,7 @@
         function showError(message) {
             errorMessage.innerHTML = `
                 <div class="error-message">
-                    <strong>❌ 检测失败:</strong> ${message}
+                    <strong>�?检测失�?</strong> ${message}
                 </div>
             `;
         }
@@ -1036,12 +1036,12 @@
             errorMessage.innerHTML = '';
         }
 
-        // 页面加载完成后设置默认路径
+        // 页面加载完成后设置默认路�?
         document.addEventListener('DOMContentLoaded', () => {
             // 检测浏览器能力
             detectBrowserCapabilities();
             
-            // 初始化路径学习功能
+            // 初始化路径学习功�?
             PathLearning.updateQuickPaths();
             
             // 设置当前工作目录作为默认路径
@@ -1050,7 +1050,7 @@
             
             // 设置用户文档快捷路径
             const userPathBtn = document.getElementById('userPathBtn');
-            if (userPathBtn) { // 检查按钮是否存在
+            if (userPathBtn) { // 检查按钮是否存�?
                 if (navigator.platform.includes('Win')) {
                     const userProfile = 'C:\\Users\\' + (window.location.hostname || 'YourName');
                     userPathBtn.onclick = () => setQuickPath(userProfile + '\\Documents');
@@ -1084,7 +1084,7 @@
                 folderPathInput.addEventListener(eventName, unhighlight, false);
             });
             
-            // 处理文件夹拖放
+            // 处理文件夹拖�?
             folderPathInput.addEventListener('drop', handleDrop, false);
         }
 
@@ -1109,7 +1109,7 @@
             const items = dt.items;
             
             if (files.length > 0) {
-                showLoadingMessage('正在分析拖拽的文件...');
+                showLoadingMessage('正在分析拖拽的文�?..');
                 
                 try {
                     // 尝试使用FileSystemHandle (如果支持)
@@ -1118,7 +1118,7 @@
                         if (item.kind === 'file') {
                             const entry = await item.getAsFileSystemHandle();
                             if (entry.kind === 'directory') {
-                                // 如果拖拽的是文件夹
+                                // 如果拖拽的是文件�?
                                 const folderInfo = await analyzeFolderWithHandle(entry);
                                 hideLoadingMessage();
                                 showEnhancedFolderResult(folderInfo);
@@ -1132,7 +1132,7 @@
                     
                 } catch (error) {
                     hideLoadingMessage();
-                    console.warn('增强拖拽失败，使用传统方式:', error);
+                    console.warn('增强拖拽失败，使用传统方�?', error);
                     await handleTraditionalDrop(files);
                 }
             }
@@ -1149,7 +1149,7 @@
             if (file.webkitRelativePath) {
                 const pathParts = file.webkitRelativePath.split('/');
                 if (pathParts.length > 1) {
-                    pathParts.pop(); // 移除文件名
+                    pathParts.pop(); // 移除文件�?
                     pathInfo = {
                         relativePath: pathParts.join('/'),
                         method: 'webkitRelativePath'
@@ -1157,12 +1157,12 @@
                 }
             }
             
-            // 方法2: 文件名模式分析
+            // 方法2: 文件名模式分�?
             if (!pathInfo) {
                 pathInfo = analyzeFileNamePattern(Array.from(files));
             }
             
-            // 方法3: 尝试从文件属性推导
+            // 方法3: 尝试从文件属性推�?
             if (!pathInfo) {
                 pathInfo = await inferPathFromFileProperties(file);
             }
@@ -1170,18 +1170,18 @@
             hideLoadingMessage();
             
             if (pathInfo) {
-                // 显示智能推导的结果
+                // 显示智能推导的结�?
                 showDragDropResult(pathInfo, files.length);
             } else {
-                showError('无法从拖拽的文件中提取路径信息。请使用文件夹选择功能。');
+                showError('无法从拖拽的文件中提取路径信息。请使用文件夹选择功能�?);
             }
         }
         
-        // 分析文件名模式
+        // 分析文件名模�?
         function analyzeFileNamePattern(files) {
             if (files.length < 2) return null;
             
-            // 查找共同的路径模式
+            // 查找共同的路径模�?
             const names = files.map(f => f.name);
             const commonPrefix = findCommonPrefix(names);
             
@@ -1196,14 +1196,14 @@
             return null;
         }
         
-        // 从文件属性推导路径
+        // 从文件属性推导路�?
         async function inferPathFromFileProperties(file) {
             try {
                 // 基于文件类型和名称推导可能的位置
                 const fileType = file.type || getFileTypeFromName(file.name);
                 const fileName = file.name.toLowerCase();
                 
-                // 常见文件类型的默认位置
+                // 常见文件类型的默认位�?
                 const typeMapping = {
                     'image': 'Pictures',
                     'video': 'Videos',
@@ -1225,7 +1225,7 @@
                 }
                 
             } catch (error) {
-                console.warn('文件属性分析失败:', error);
+                console.warn('文件属性分析失�?', error);
             }
             
             return null;
@@ -1237,7 +1237,7 @@
             modal.className = 'folder-selection-modal';
             
             const confidenceText = pathInfo.confidence ? 
-                `(置信度: ${Math.round(pathInfo.confidence * 100)}%)` : '';
+                `(置信�? ${Math.round(pathInfo.confidence * 100)}%)` : '';
             
             modal.innerHTML = `
                 <div class="modal-content">
@@ -1249,7 +1249,7 @@
                         <div class="folder-info">
                             <div class="info-item">
                                 <span class="info-label">📄 文件数量:</span>
-                                <span class="info-value">${fileCount} 个文件</span>
+                                <span class="info-value">${fileCount} 个文�?/span>
                             </div>
                             <div class="info-item">
                                 <span class="info-label">🔍 分析方法:</span>
@@ -1264,8 +1264,8 @@
                         <div class="path-section">
                             <h4>⚠️ 注意事项</h4>
                             <div class="warning-box">
-                                由于浏览器安全限制，拖拽功能只能提供有限的路径信息。
-                                建议使用"选择文件夹"功能获得更准确的结果。
+                                由于浏览器安全限制，拖拽功能只能提供有限的路径信息�?
+                                建议使用"选择文件�?功能获得更准确的结果�?
                             </div>
                         </div>
                         
@@ -1275,7 +1275,7 @@
                                     <div class="option-icon">📍</div>
                                     <div class="option-content">
                                         <div class="option-title">使用推导路径</div>
-                                        <div class="option-desc">使用分析得出的路径: ${pathInfo.relativePath}</div>
+                                        <div class="option-desc">使用分析得出的路�? ${pathInfo.relativePath}</div>
                                     </div>
                                 </div>
                                 
@@ -1283,7 +1283,7 @@
                                     <div class="option-icon">✏️</div>
                                     <div class="option-content">
                                         <div class="option-title">手动输入路径</div>
-                                        <div class="option-desc">自定义输入正确的文件夹路径</div>
+                                        <div class="option-desc">自定义输入正确的文件夹路�?/div>
                                     </div>
                                 </div>
                             </div>
@@ -1317,7 +1317,7 @@
         function getMethodDisplayName(method) {
             const names = {
                 'webkitRelativePath': 'WebKit相对路径',
-                'pattern_analysis': '文件名模式分析',
+                'pattern_analysis': '文件名模式分�?,
                 'file_type_inference': '文件类型推导'
             };
             return names[method] || method;
@@ -1370,7 +1370,7 @@
                                 <div class="method-header">
                                     <span class="method-icon">🌟</span>
                                     <span class="method-title">方法1: 增强模式 (推荐)</span>
-                                    <span class="method-badge success">已启用</span>
+                                    <span class="method-badge success">已启�?/span>
                                 </div>
                                 <div class="method-desc">
                                     使用File System Access API，支持Chrome 86+等现代浏览器
@@ -1381,8 +1381,8 @@
                             <div class="method-card">
                                 <div class="method-header">
                                     <span class="method-icon">🔗</span>
-                                    <span class="method-title">方法2: 自定义协议</span>
-                                    <span class="method-badge experimental">实验性</span>
+                                    <span class="method-title">方法2: 自定义协�?/span>
+                                    <span class="method-badge experimental">实验�?/span>
                                 </div>
                                 <div class="method-desc">
                                     注册自定义协议handler，支持从文件管理器直接打开
@@ -1392,13 +1392,13 @@
                             
                             <div class="method-card">
                                 <div class="method-header">
-                                    <span class="method-icon">🖱️</span>
+                                    <span class="method-icon">🖱�?/span>
                                     <span class="method-title">方法3: 增强拖拽</span>
                                     <span class="method-badge success">可用</span>
                                 </div>
                                 <div class="method-desc">
-                                    支持文件夹拖拽，智能分析文件结构和路径
-                                    <div class="help-text">直接将文件夹拖到路径输入框即可</div>
+                                    支持文件夹拖拽，智能分析文件结构和路�?
+                                    <div class="help-text">直接将文件夹拖到路径输入框即�?/div>
                                 </div>
                             </div>
                             
@@ -1409,7 +1409,7 @@
                                     <span class="method-badge info">辅助</span>
                                 </div>
                                 <div class="method-desc">
-                                    基于文件名、系统信息等智能推导可能的绝对路径
+                                    基于文件名、系统信息等智能推导可能的绝对路�?
                                     <button class="btn-mini" onclick="testPathInference()">测试推导</button>
                                 </div>
                             </div>
@@ -1418,10 +1418,10 @@
                         <div class="advanced-tips">
                             <h4>💡 使用建议</h4>
                             <ul>
-                                <li><strong>Chrome/Edge用户</strong>: 直接使用"选择文件夹"按钮，享受增强模式</li>
+                                <li><strong>Chrome/Edge用户</strong>: 直接使用"选择文件�?按钮，享受增强模�?/li>
                                 <li><strong>Firefox用户</strong>: 启用dom.webkitBlink.filesystem.enabled配置</li>
-                                <li><strong>旧版浏览器</strong>: 使用拖拽功能或手动输入路径</li>
-                                <li><strong>开发者</strong>: 可以设置自定义协议实现系统级集成</li>
+                                <li><strong>旧版浏览�?/strong>: 使用拖拽功能或手动输入路�?/li>
+                                <li><strong>开发�?/strong>: 可以设置自定义协议实现系统级集成</li>
                             </ul>
                         </div>
                     </div>
@@ -1430,13 +1430,13 @@
             
             document.body.appendChild(modal);
             
-            // 检测File System Access API状态
+            // 检测File System Access API状�?
             setTimeout(() => {
                 const status = document.getElementById('fsaStatus');
                 if (hasFileSystemAccess) {
-                    status.innerHTML = '<span style="color: #4caf50;">✅ 已支持，可获取真实文件路径</span>';
+                    status.innerHTML = '<span style="color: #4caf50;">�?已支持，可获取真实文件路�?/span>';
                 } else {
-                    status.innerHTML = '<span style="color: #ff9800;">⚠️ 不支持，将使用兼容模式</span>';
+                    status.innerHTML = '<span style="color: #ff9800;">⚠️ 不支持，将使用兼容模�?/span>';
                 }
             }, 100);
             
@@ -1444,7 +1444,7 @@
             addProtocolHelperStyles();
         }
         
-        // 设置自定义协议
+        // 设置自定义协�?
         async function setupCustomProtocol() {
             try {
                 const response = await fetch('/api/register-protocol', {
@@ -1477,13 +1477,13 @@
             modal.innerHTML = `
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3>🔧 自定义协议设置说明</h3>
+                        <h3>🔧 自定义协议设置说�?/h3>
                         <button class="modal-close" onclick="closeFolderModal()">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="protocol-setup">
                             <div class="info-box warning">
-                                <strong>注意:</strong> 此功能需要管理员权限修改系统注册表
+                                <strong>注意:</strong> 此功能需要管理员权限修改系统注册�?
                             </div>
                             
                             <h4>📋 设置步骤</h4>
@@ -1493,13 +1493,13 @@
                             
                             <h4>🎯 使用方法</h4>
                             <div class="usage-example">
-                                <p>设置完成后，您可以在地址栏输入:</p>
+                                <p>设置完成后，您可以在地址栏输�?</p>
                                 <code>filecheck://C:\\path\\to\\your\\folder</code>
                                 <p>系统将自动打开本工具并检测指定文件夹</p>
                             </div>
                             
                             <div class="protocol-actions">
-                                <button class="btn" onclick="copyProtocolCode()">复制注册表代码</button>
+                                <button class="btn" onclick="copyProtocolCode()">复制注册表代�?/button>
                                 <button class="btn btn-secondary" onclick="closeFolderModal()">关闭</button>
                             </div>
                         </div>
@@ -1510,12 +1510,12 @@
             document.body.appendChild(modal);
         }
         
-        // 复制协议注册表代码
+        // 复制协议注册表代�?
         function copyProtocolCode() {
             const regCode = `Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\\filecheck]
-@="URL:文件编号检测协议"
+@="URL:文件编号检测协�?
 "URL Protocol"=""
 
 [HKEY_CLASSES_ROOT\\filecheck\\shell]
@@ -1526,7 +1526,7 @@
 @="node \\"${window.location.origin}/check-missing-numbers-gui-server.js\\" \\"%1\\""`;
 
             navigator.clipboard.writeText(regCode).then(() => {
-                showSuccessMessage('✅ 注册表代码已复制到剪贴板');
+                showSuccessMessage('�?注册表代码已复制到剪贴板');
             }).catch(() => {
                 // 如果复制失败，显示内容供用户手动复制
                 const textarea = document.createElement('textarea');
@@ -1537,7 +1537,7 @@
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                showSuccessMessage('✅ 注册表代码已复制');
+                showSuccessMessage('�?注册表代码已复制');
             });
         }
         
@@ -1616,7 +1616,7 @@
                 
                 if (result.success) {
                     document.getElementById('folderPath').value = result.data.absolutePath;
-                    showSuccessMessage(`✅ 路径验证成功: ${result.data.absolutePath}`);
+                    showSuccessMessage(`�?路径验证成功: ${result.data.absolutePath}`);
                     closeFolderModal();
                 } else {
                     showError(`路径验证失败: ${result.error}`);
@@ -1628,7 +1628,7 @@
             }
         }
         
-        // 路径缓存和学习功能
+        // 路径缓存和学习功�?
         const PathLearning = {
             storageKey: 'filecheck_path_history',
             maxHistoryItems: 20,
@@ -1656,7 +1656,7 @@
                         history[existingIndex].timestamp = timestamp;
                         history[existingIndex].method = method;
                     } else {
-                        // 添加新记录
+                        // 添加新记�?
                         history.unshift(newEntry);
                     }
                     
@@ -1707,12 +1707,12 @@
                     }));
             },
             
-            // 智能推荐基于文件夹名称
+            // 智能推荐基于文件夹名�?
             getSmartRecommendations(folderName) {
                 const history = this.getHistory();
                 const recommendations = [];
                 
-                // 查找包含相似名称的路径
+                // 查找包含相似名称的路�?
                 history.forEach(item => {
                     if (item.path.toLowerCase().includes(folderName.toLowerCase())) {
                         recommendations.push({
@@ -1768,7 +1768,7 @@
                 
                 const recommended = this.getRecommendedPaths(3);
                 
-                // 移除现有的推荐按钮
+                // 移除现有的推荐按�?
                 const existingRecommended = quickPaths.querySelectorAll('.btn-quick-recommended');
                 existingRecommended.forEach(btn => btn.remove());
                 
@@ -1778,18 +1778,18 @@
                     btn.type = 'button';
                     btn.className = 'btn-quick btn-quick-recommended';
                     btn.textContent = `📌 ${this.getShortPath(item.path)}`;
-                    btn.title = `${item.path} (使用${item.score}次, ${item.lastUsed})`;
+                    btn.title = `${item.path} (使用${item.score}�? ${item.lastUsed})`;
                     btn.onclick = () => setQuickPath(item.path);
                     quickPaths.appendChild(btn);
                 });
             },
             
-            // 获取路径简写
+            // 获取路径简�?
             getShortPath(fullPath) {
                 const parts = fullPath.split(/[\\\/]/);
                 if (parts.length <= 2) return fullPath;
                 
-                // 显示最后两级目录
+                // 显示最后两级目�?
                 return '...' + (navigator.platform.includes('Win') ? '\\' : '/') + 
                        parts.slice(-2).join(navigator.platform.includes('Win') ? '\\' : '/');
             },
@@ -1798,11 +1798,11 @@
             clearHistory() {
                 localStorage.removeItem(this.storageKey);
                 this.updateQuickPaths();
-                showSuccessMessage('✅ 路径历史记录已清除');
+                showSuccessMessage('�?路径历史记录已清�?);
             }
         };
         
-        // 修改原有的useFileSystemHandle函数以记录成功路径
+        // 修改原有的useFileSystemHandle函数以记录成功路�?
         const originalUseFileSystemHandle = useFileSystemHandle;
         function useFileSystemHandle(folderName) {
             const result = originalUseFileSystemHandle(folderName);
@@ -1810,7 +1810,7 @@
             return result;
         }
         
-        // 修改原有的useAbsolutePath函数以记录成功路径
+        // 修改原有的useAbsolutePath函数以记录成功路�?
         const originalUseAbsolutePath = useAbsolutePath;
         function useAbsolutePath(absolutePath) {
             const result = originalUseAbsolutePath(absolutePath);
@@ -2016,11 +2016,11 @@
             const helpText = document.getElementById('folderPathHelp');
             
             if (hasFileSystemAccess) {
-                browseBtnText.innerHTML = '📂 选择文件夹 <span style="font-size:10px;background:#4caf50;color:white;padding:2px 6px;border-radius:10px;margin-left:5px;">增强模式</span>';
-                helpText.innerHTML = '💡 您的浏览器支持增强模式，可以获取完整的文件夹路径！';
+                browseBtnText.innerHTML = '📂 选择文件�?<span style="font-size:10px;background:#4caf50;color:white;padding:2px 6px;border-radius:10px;margin-left:5px;">增强模式</span>';
+                helpText.innerHTML = '💡 您的浏览器支持增强模式，可以获取完整的文件夹路径�?;
             } else {
-                browseBtnText.innerHTML = '📂 选择文件夹 <span style="font-size:10px;background:#ff9800;color:white;padding:2px 6px;border-radius:10px;margin-left:5px;">兼容模式</span>';
-                helpText.innerHTML = '💡 您的浏览器使用兼容模式，将提供智能路径推荐';
+                browseBtnText.innerHTML = '📂 选择文件�?<span style="font-size:10px;background:#ff9800;color:white;padding:2px 6px;border-radius:10px;margin-left:5px;">兼容模式</span>';
+                helpText.innerHTML = '💡 您的浏览器使用兼容模式，将提供智能路径推�?;
             }
         }
         
@@ -2034,18 +2034,18 @@
             
             if (isManualInputMode) {
                 folderPathInput.readOnly = false;
-                folderPathInput.placeholder = '请输入要检测的文件夹路径...';
-                helpText.textContent = '💡 例如: C:\\Users\\Documents\\files 或 /home/user/documents';
-                browseBtnText.textContent = '📁 选择文件夹';
+                folderPathInput.placeholder = '请输入要检测的文件夹路�?..';
+                helpText.textContent = '💡 例如: C:\\Users\\Documents\\files �?/home/user/documents';
+                browseBtnText.textContent = '📁 选择文件�?;
                 folderPathInput.focus();
             } else {
                 folderPathInput.readOnly = true;
-                folderPathInput.placeholder = '请选择要检测的文件夹...';
+                folderPathInput.placeholder = '请选择要检测的文件�?..';
                 updateUIBasedOnCapabilities();
             }
         }
         
-        // 打开文件夹选择器 - 支持多种API
+        // 打开文件夹选择�?- 支持多种API
         async function openFolderPicker() {
             if (isManualInputMode) {
                 toggleManualInput();
@@ -2058,25 +2058,25 @@
                     await openModernFolderPicker();
                     return;
                 } catch (error) {
-                    console.warn('File System Access API失败，回退到传统方法:', error);
+                    console.warn('File System Access API失败，回退到传统方�?', error);
                     showError('增强模式失败，切换到兼容模式...');
                 }
             }
             
-            // 回退到传统的文件选择器
+            // 回退到传统的文件选择�?
             const folderPicker = document.getElementById('folderPicker');
             folderPicker.click();
         }
         
-        // 使用File System Access API选择文件夹
+        // 使用File System Access API选择文件�?
         async function openModernFolderPicker() {
             try {
-                showLoadingMessage('正在打开增强模式文件夹选择器...');
+                showLoadingMessage('正在打开增强模式文件夹选择�?..');
                 
-                // 使用新的API选择文件夹
+                // 使用新的API选择文件�?
                 const directoryHandle = await window.showDirectoryPicker({
                     mode: 'read',
-                    startIn: 'documents' // 从文档文件夹开始
+                    startIn: 'documents' // 从文档文件夹开�?
                 });
                 
                 hideLoadingMessage();
@@ -2084,7 +2084,7 @@
                 // 获取文件夹的完整信息
                 const folderInfo = await analyzeFolderWithHandle(directoryHandle);
                 
-                // 显示增强模式的结果
+                // 显示增强模式的结�?
                 showEnhancedFolderResult(folderInfo);
                 
             } catch (error) {
@@ -2099,14 +2099,14 @@
             }
         }
         
-        // 使用FileSystemDirectoryHandle分析文件夹
+        // 使用FileSystemDirectoryHandle分析文件�?
         async function analyzeFolderWithHandle(directoryHandle) {
-            showLoadingMessage('正在分析文件夹内容...');
+            showLoadingMessage('正在分析文件夹内�?..');
             
             const files = [];
             let totalSize = 0;
             
-            // 递归读取文件夹内容
+            // 递归读取文件夹内�?
             async function scanDirectory(dirHandle, relativePath = '') {
                 for await (const [name, handle] of dirHandle.entries()) {
                     if (handle.kind === 'file') {
@@ -2150,31 +2150,31 @@
             modal.innerHTML = `
                 <div class="modal-content enhanced-modal">
                     <div class="modal-header">
-                        <h3>🚀 增强模式 - 文件夹分析完成</h3>
+                        <h3>🚀 增强模式 - 文件夹分析完�?/h3>
                         <button class="modal-close" onclick="closeFolderModal()">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="enhanced-info">
                             <div class="info-badge success">
-                                <div class="badge-icon">✅</div>
+                                <div class="badge-icon">�?/div>
                                 <div class="badge-content">
-                                    <div class="badge-title">获取到完整路径</div>
-                                    <div class="badge-desc">已成功获取文件夹的真实句柄</div>
+                                    <div class="badge-title">获取到完整路�?/div>
+                                    <div class="badge-desc">已成功获取文件夹的真实句�?/div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="folder-info">
                             <div class="info-item">
-                                <span class="info-label">📂 文件夹名称:</span>
+                                <span class="info-label">📂 文件夹名�?</span>
                                 <span class="info-value">${folderInfo.name}</span>
                             </div>
                             <div class="info-item">
                                 <span class="info-label">📄 文件总数:</span>
-                                <span class="info-value">${folderInfo.totalFiles} 个文件</span>
+                                <span class="info-value">${folderInfo.totalFiles} 个文�?/span>
                             </div>
                             <div class="info-item">
-                                <span class="info-label">💾 文件夹大小:</span>
+                                <span class="info-label">💾 文件夹大�?</span>
                                 <span class="info-value">${sizeText}</span>
                             </div>
                         </div>
@@ -2222,8 +2222,8 @@
                     type: file.type
                 }));
                 
-                // 显示加载状态
-                showLoadingMessage('正在分析文件夹结构...');
+                // 显示加载状�?
+                showLoadingMessage('正在分析文件夹结�?..');
                 
                 // 调用后端API来提取文件夹路径
                 fetch('/api/extract-folder-path', {
@@ -2240,15 +2240,15 @@
                     if (result.success) {
                         showAdvancedPathSelectionModal(result.data);
                     } else {
-                        showError('分析文件夹失败: ' + result.error);
-                        // 回退到简单处理
+                        showError('分析文件夹失�? ' + result.error);
+                        // 回退到简单处�?
                         handleFolderSelectionFallback(input);
                     }
                 })
                 .catch(error => {
                     hideLoadingMessage();
                     console.error('API调用失败:', error);
-                    // 回退到简单处理
+                    // 回退到简单处�?
                     handleFolderSelectionFallback(input);
                 });
             }
@@ -2304,7 +2304,7 @@
                             </div>
                             <div class="info-item">
                                 <span class="info-label">📄 文件数量:</span>
-                                <span class="info-value">${fileCount} 个文件</span>
+                                <span class="info-value">${fileCount} 个文�?/span>
                             </div>
                             <div class="info-item">
                                 <span class="info-label">💻 系统平台:</span>
@@ -2386,11 +2386,11 @@
         // 使用绝对路径
         function useAbsolutePath(absolutePath) {
             document.getElementById('folderPath').value = absolutePath;
-            showSuccessMessage(`✅ 已设置路径: ${absolutePath}`);
+            showSuccessMessage(`�?已设置路�? ${absolutePath}`);
             closeFolderModal();
         }
         
-        // 自定义输入路径
+        // 自定义输入路�?
         function inputCustomPath(relativePath, fileCount) {
             closeFolderModal();
             showManualPathInputDialog(fileCount, relativePath);
@@ -2398,7 +2398,7 @@
         
         // 显示加载消息
         function showLoadingMessage(message) {
-            // 移除现有的加载消息
+            // 移除现有的加载消�?
             const existingLoader = document.querySelector('.temp-loader');
             if (existingLoader) {
                 existingLoader.remove();
@@ -2435,7 +2435,7 @@
             }
         }
         
-        // 显示路径确认对话框
+        // 显示路径确认对话�?
         function showPathConfirmationDialog(relativePath, fileCount) {
             showFolderSelectionModal(relativePath, fileCount);
         }
@@ -2459,7 +2459,7 @@
                             </div>
                             <div class="info-item">
                                 <span class="info-label">📄 文件数量:</span>
-                                <span class="info-value">${fileCount} 个文件</span>
+                                <span class="info-value">${fileCount} 个文�?/span>
                             </div>
                         </div>
                         
@@ -2467,13 +2467,13 @@
                             <div class="option-card" onclick="useRelativePath('${relativePath}')">
                                 <div class="option-icon">📍</div>
                                 <div class="option-title">使用相对路径</div>
-                                <div class="option-desc">使用检测到的相对路径: ${relativePath}</div>
+                                <div class="option-desc">使用检测到的相对路�? ${relativePath}</div>
                             </div>
                             
                             <div class="option-card" onclick="inputAbsolutePath('${relativePath}', ${fileCount})">
-                                <div class="option-icon">🗂️</div>
+                                <div class="option-icon">🗂�?/div>
                                 <div class="option-title">输入绝对路径</div>
-                                <div class="option-desc">手动输入该文件夹的完整绝对路径</div>
+                                <div class="option-desc">手动输入该文件夹的完整绝对路�?/div>
                             </div>
                         </div>
                     </div>
@@ -2629,15 +2629,15 @@
             if (modal) {
                 modal.remove();
             }
-            // 清空文件选择器
+            // 清空文件选择�?
             document.getElementById('folderPicker').value = '';
         }
         
         // 使用文件系统句柄
         function useFileSystemHandle(folderName) {
-            // 设置特殊标识，表明使用文件系统句柄
+            // 设置特殊标识，表明使用文件系统句�?
             document.getElementById('folderPath').value = `[文件系统句柄] ${folderName}`;
-            showSuccessMessage(`✅ 已启用增强模式，文件夹: ${folderName}`);
+            showSuccessMessage(`�?已启用增强模式，文件�? ${folderName}`);
             closeFolderModal();
         }
         
@@ -2655,7 +2655,7 @@
                     document.getElementById('folderPath').value = absolutePath;
                     showSuccessMessage(`🎉 成功获取绝对路径: ${absolutePath}`);
                 } else {
-                    showError('无法获取绝对路径，建议使用文件系统句柄模式');
+                    showError('无法获取绝对路径，建议使用文件系统句柄模�?);
                 }
                 
                 closeFolderModal();
@@ -2687,7 +2687,7 @@
                     return pathFromTiming;
                 }
             } catch (error) {
-                console.warn('时间戳推导失败:', error);
+                console.warn('时间戳推导失�?', error);
             }
             
             // 方法3: 通过浏览器缓存和本地存储推导
@@ -2711,17 +2711,17 @@
         
         // 通过文件时间戳推导路径（实验性）
         async function inferPathFromTiming(folderInfo) {
-            // 这个方法利用文件系统的时间戳特性来推导可能的路径
-            // 注意：这是实验性功能，可能不稳定
+            // 这个方法利用文件系统的时间戳特性来推导可能的路�?
+            // 注意：这是实验性功能，可能不稳�?
             
             const recentFiles = folderInfo.files
-                .filter(f => f.lastModified > Date.now() - 24 * 60 * 60 * 1000) // 最近24小时
+                .filter(f => f.lastModified > Date.now() - 24 * 60 * 60 * 1000) // 最�?4小时
                 .sort((a, b) => b.lastModified - a.lastModified)
                 .slice(0, 5);
             
             if (recentFiles.length === 0) return null;
             
-            // 基于操作系统和常见路径模式推导
+            // 基于操作系统和常见路径模式推�?
             const platform = navigator.platform.toLowerCase();
             const isWindows = platform.includes('win');
             
@@ -2739,12 +2739,12 @@
                 '/Users/Shared/Documents'
             ];
             
-            // 返回最可能的路径
+            // 返回最可能的路�?
             const separator = isWindows ? '\\' : '/';
             return basePaths[0] + separator + folderInfo.name;
         }
         
-        // 通过浏览器缓存推导路径
+        // 通过浏览器缓存推导路�?
         async function inferPathFromCache(folderInfo) {
             // 检查本地存储中是否有相关的路径信息
             const storedPaths = JSON.parse(localStorage.getItem('folderPaths') || '{}');
@@ -2763,7 +2763,7 @@
             const platform = navigator.platform.toLowerCase();
             const isWindows = platform.includes('win');
             
-            // 智能推导基于文件夹名称
+            // 智能推导基于文件夹名�?
             const pathMappings = isWindows ? {
                 'documents': 'C:\\Users\\' + getUserName() + '\\Documents',
                 'desktop': 'C:\\Users\\' + getUserName() + '\\Desktop',
@@ -2789,7 +2789,7 @@
             return null;
         }
         
-        // 获取用户名（推导）
+        // 获取用户名（推导�?
         function getUserName() {
             // 从各种来源推导用户名
             const ua = navigator.userAgent;
@@ -2804,7 +2804,7 @@
             }
         }
         
-        // 格式化文件大小
+        // 格式化文件大�?
         function formatFileSize(bytes) {
             if (bytes === 0) return '0 B';
             
@@ -2896,7 +2896,7 @@
             document.head.appendChild(style);
         }
         
-        // 显示手动路径输入对话框
+        // 显示手动路径输入对话�?
         function showManualPathInputDialog(fileCount, suggestedPath = '') {
             // 创建模态框形式的输入对话框
             const modal = document.createElement('div');
@@ -2909,30 +2909,30 @@
             modal.innerHTML = `
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3>✏️ 手动输入文件夹路径</h3>
+                        <h3>✏️ 手动输入文件夹路�?/h3>
                         <button class="modal-close" onclick="closeFolderModal()">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="folder-info">
                             <div class="info-item">
-                                <span class="info-label">📄 已选择文件数:</span>
-                                <span class="info-value">${fileCount} 个文件</span>
+                                <span class="info-label">📄 已选择文件�?</span>
+                                <span class="info-value">${fileCount} 个文�?/span>
                             </div>
                             ${suggestedPath ? `
                             <div class="info-item">
-                                <span class="info-label">📂 检测到的相对路径:</span>
+                                <span class="info-label">📂 检测到的相对路�?</span>
                                 <span class="info-value">${suggestedPath}</span>
                             </div>
                             ` : ''}
                         </div>
                         
                         <div class="manual-input-section">
-                            <label for="manualPathInput">📁 请输入完整的文件夹路径:</label>
+                            <label for="manualPathInput">📁 请输入完整的文件夹路�?</label>
                             <input type="text" id="manualPathInput" class="manual-path-input" 
                                    placeholder="${platformExample}" 
                                    value="${suggestedPath ? (navigator.platform.includes('Win') ? 'C:\\\\path\\\\to\\\\' + suggestedPath.replace(/\//g, '\\\\') : '/path/to/' + suggestedPath) : ''}">
                             <div class="help-text">
-                                💡 请输入该文件夹在您电脑上的完整绝对路径
+                                💡 请输入该文件夹在您电脑上的完整绝对路�?
                             </div>
                         </div>
                         
@@ -3000,14 +3000,14 @@
             }, 100);
         }
         
-        // 提交手动输入的路径
+        // 提交手动输入的路�?
         function submitManualPath() {
             const input = document.getElementById('manualPathInput');
             const userPath = input ? input.value.trim() : '';
             
             if (userPath) {
                 document.getElementById('folderPath').value = userPath;
-                showSuccessMessage(`✅ 已设置路径: ${userPath}`);
+                showSuccessMessage(`�?已设置路�? ${userPath}`);
                 closeFolderModal();
             } else {
                 // 显示错误提示
@@ -3071,13 +3071,13 @@
             
             document.body.appendChild(notification);
             
-            // 5秒后移除错误提示（比成功消息稍长）
+            // 5秒后移除错误提示（比成功消息稍长�?
             setTimeout(() => {
                 notification.remove();
             }, 5000);
         }
 
-        // 设置拖放功能（简化版）
+        // 设置拖放功能（简化版�?
         function setupDragAndDrop() {
             const folderPathInput = document.getElementById('folderPath');
             
@@ -3096,7 +3096,7 @@
                 folderPathInput.addEventListener(eventName, unhighlight, false);
             });
             
-            // 处理文件夹拖放
+            // 处理文件夹拖�?
             folderPathInput.addEventListener('drop', handleDrop, false);
         }
 
@@ -3124,19 +3124,19 @@
                 if (file.webkitRelativePath) {
                     const pathParts = file.webkitRelativePath.split('/');
                     if (pathParts.length > 1) {
-                        pathParts.pop(); // 移除文件名
+                        pathParts.pop(); // 移除文件�?
                         const folderPath = pathParts.join('/');
                         document.getElementById('folderPath').value = folderPath;
-                        showSuccessMessage(`已检测到文件夹：${folderPath}<br>文件数量：${files.length}`);
+                        showSuccessMessage(`已检测到文件夹：${folderPath}<br>文件数量�?{files.length}`);
                     }
                 } else {
-                    alert('提示：请使用浏览按钮选择文件夹，或手动输入文件夹路径。');
+                    alert('提示：请使用浏览按钮选择文件夹，或手动输入文件夹路径�?);
                 }
             }
         }
     </script>
     
     <!-- PWA 注册脚本 -->
-    <script src="/pwa-register.js"></script>
+    <script src="/pwa/pwa-register.js"></script>
 </body>
 </html>

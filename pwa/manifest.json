@@ -1,7 +1,7 @@
 {
-  "name": "Markdown to PDF 转换器",
+  "name": "Markdown to PDF 转换�?,
   "short_name": "MD2PDF",
-  "description": "将 Markdown 文件转换为 PDF，支持 LaTeX 数学公式",
+  "description": "�?Markdown 文件转换�?PDF，支�?LaTeX 数学公式",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#667eea",
@@ -9,49 +9,49 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icons/icon-72x72.png",
+      "src": "/pwa/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-96x96.png",
+      "src": "/pwa/icons/icon-96x96.png",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-128x128.png",
+      "src": "/pwa/icons/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-144x144.png",
+      "src": "/pwa/icons/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-152x152.png",
+      "src": "/pwa/icons/icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-192x192.png",
+      "src": "/pwa/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-384x384.png",
+      "src": "/pwa/icons/icon-384x384.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-512x512.png",
+      "src": "/pwa/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -76,11 +76,11 @@
     {
       "name": "转换 Markdown",
       "short_name": "转换",
-      "description": "快速转换 Markdown 文件",
+      "description": "快速转�?Markdown 文件",
       "url": "/",
       "icons": [
         {
-          "src": "/icons/icon-96x96.png",
+          "src": "/pwa/icons/icon-96x96.png",
           "sizes": "96x96"
         }
       ]
@@ -92,7 +92,7 @@
       "url": "/merge-web/",
       "icons": [
         {
-          "src": "/icons/icon-96x96.png",
+          "src": "/pwa/icons/icon-96x96.png",
           "sizes": "96x96"
         }
       ]
@@ -104,19 +104,19 @@
       "url": "/katex-web/",
       "icons": [
         {
-          "src": "/icons/icon-96x96.png",
+          "src": "/pwa/icons/icon-96x96.png",
           "sizes": "96x96"
         }
       ]
     },
     {
-      "name": "编号检测",
-      "short_name": "检测",
-      "description": "检测文件编号",
+      "name": "编号检�?,
+      "short_name": "检�?,
+      "description": "检测文件编�?,
       "url": "/check-numbers-web/",
       "icons": [
         {
-          "src": "/icons/icon-96x96.png",
+          "src": "/pwa/icons/icon-96x96.png",
           "sizes": "96x96"
         }
       ]

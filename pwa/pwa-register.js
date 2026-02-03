@@ -1,4 +1,4 @@
-// PWA 注册和管理脚本
+// PWA 注册和管理脚�?
 (function() {
   'use strict';
 
@@ -11,11 +11,11 @@
   // 注册 Service Worker
   async function registerServiceWorker() {
     try {
-      const registration = await navigator.serviceWorker.register('/service-worker.js', {
+      const registration = await navigator.serviceWorker.register('/pwa/service-worker.js', {
         scope: '/'
       });
 
-      console.log('✅ Service Worker 注册成功:', registration.scope);
+      console.log('�?Service Worker 注册成功:', registration.scope);
 
       // 监听更新
       registration.addEventListener('updatefound', () => {
@@ -30,13 +30,13 @@
         });
       });
 
-      // 检查更新
+      // 检查更�?
       setInterval(() => {
         registration.update();
-      }, 60 * 60 * 1000); // 每小时检查一次
+      }, 60 * 60 * 1000); // 每小时检查一�?
 
     } catch (error) {
-      console.error('❌ Service Worker 注册失败:', error);
+      console.error('�?Service Worker 注册失败:', error);
     }
   }
 
@@ -110,9 +110,9 @@
       console.log(`用户选择: ${outcome}`);
 
       if (outcome === 'accepted') {
-        console.log('✅ 用户接受安装');
+        console.log('�?用户接受安装');
       } else {
-        console.log('❌ 用户拒绝安装');
+        console.log('�?用户拒绝安装');
       }
 
       deferredPrompt = null;
@@ -129,22 +129,22 @@
 
   // 监听安装完成
   window.addEventListener('appinstalled', () => {
-    console.log('✅ PWA 安装成功');
+    console.log('�?PWA 安装成功');
     deferredPrompt = null;
   });
 
-  // 检测是否在 PWA 模式下运行
+  // 检测是否在 PWA 模式下运�?
   function isStandalone() {
     return window.matchMedia('(display-mode: standalone)').matches ||
            window.navigator.standalone === true;
   }
 
   if (isStandalone()) {
-    console.log('🚀 应用运行在独立模式');
+    console.log('🚀 应用运行在独立模�?);
     document.body.classList.add('pwa-standalone');
   }
 
-  // 离线状态提示
+  // 离线状态提�?
   function updateOnlineStatus() {
     const status = navigator.onLine ? 'online' : 'offline';
     document.body.classList.toggle('pwa-offline', !navigator.onLine);
@@ -159,7 +159,7 @@
     notification.className = 'pwa-offline-notification';
     notification.innerHTML = `
       <div class="pwa-offline-content">
-        <span>📡 当前离线，使用缓存数据</span>
+        <span>📡 当前离线，使用缓存数�?/span>
       </div>
     `;
 
@@ -175,7 +175,7 @@
   window.addEventListener('online', updateOnlineStatus);
   window.addEventListener('offline', updateOnlineStatus);
 
-  // 页面加载完成后注册
+  // 页面加载完成后注�?
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', registerServiceWorker);
   } else {
