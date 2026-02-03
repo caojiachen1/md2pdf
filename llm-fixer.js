@@ -13,7 +13,7 @@ import * as fs from 'fs/promises';
  */
 export const LMSTUDIO_CONFIG = {
   baseUrl: 'http://localhost:1234',
-  model: 'qwen/qwen3-4b-thinking-2507',
+  model: 'qwen/qwen3-4b',
   systemPrompt: '根据输入的latex和katex解析报错,输出修正过后的latex公式,不要输出其他任何东西,只要修正后的公式'
 };
 

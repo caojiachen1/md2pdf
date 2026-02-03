@@ -15,9 +15,6 @@
     "latex-fix": "node gui/gui-launcher.js katex",
     "start:latex-fix": "node gui/gui-launcher.js katex",
     "formula-fix": "node gui/gui-launcher.js katex",
-    "generate-icons": "node generate-icons.js",
-    "check-pwa": "node check-pwa.js",
-    "pwa-setup": "echo 'Visit http://localhost:PORT/icon-generator.html to generate PWA icons'",
     "build": "echo 'No build step required for this project'",
     "test": "echo 'No tests specified'"
   },
@@ -46,10 +43,7 @@
     "pwa/",
     "cli/",
     "gui/",
-    "icon-generator.js",
-    "icon-generator.html",
     "README.md",
-    "PWA-README.md",
     "LICENSE"
   ],
   "keywords": [
@@ -69,7 +63,7 @@
     "mobile",
     "responsive"
   ],
-  "author": "Your Name",
+  "author": "caojiachen1",
   "license": "MIT",
   "dependencies": {
     "canvas": "^3.2.0",
