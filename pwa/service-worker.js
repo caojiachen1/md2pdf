@@ -1,26 +1,25 @@
 const CACHE_NAME = 'md2pdf-v1.0.0';
 const RUNTIME_CACHE = 'md2pdf-runtime';
 
-// 需要缓存的静态资�?
+// 需要缓存的静态资源
 const STATIC_CACHE_URLS = [
   '/',
   '/web/index.html',
   '/merge-web/index.html',
   '/katex-web/index.html',
-  '/check-numbers-web/index.html',
   '/pwa/manifest.json',
   '/pwa/icons/icon-192x192.png',
   '/pwa/icons/icon-512x512.png',
   '/assets/katex/katex.min.css'
 ];
 
-// 安装事件 - 缓存静态资�?
+// 安装事件 - 缓存静态资源
 self.addEventListener('install', (event) => {
-  console.log('[Service Worker] 安装�?..');
+  console.log('[Service Worker] 安装中..');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('[Service Worker] 缓存静态资�?);
+        console.log('[Service Worker] 缓存静态资源');
         return cache.addAll(STATIC_CACHE_URLS.map(url => new Request(url, {
           cache: 'reload'
         })));
@@ -32,7 +31,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// 激活事�?- 清理旧缓�?
+// 激活事件 - 清理旧缓存
 self.addEventListener('activate', (event) => {
   console.log('[Service Worker] 激活中...');
   event.waitUntil(
@@ -41,7 +40,7 @@ self.addEventListener('activate', (event) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
             if (cacheName !== CACHE_NAME && cacheName !== RUNTIME_CACHE) {
-              console.log('[Service Worker] 删除旧缓�?', cacheName);
+              console.log('[Service Worker] 删除旧缓存', cacheName);
               return caches.delete(cacheName);
             }
           })
@@ -56,7 +55,7 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // 跳过�?HTTP(S) 请求
+  // 跳过非HTTP(S) 请求
   if (!url.protocol.startsWith('http')) {
     return;
   }
@@ -67,7 +66,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 静态资源使用缓存优先策�?
+  // 静态资源使用缓存优先策略
   event.respondWith(cacheFirst(request));
 });
 
@@ -77,7 +76,7 @@ async function cacheFirst(request) {
   const cached = await cache.match(request);
   
   if (cached) {
-    console.log('[Service Worker] 从缓存返�?', request.url);
+    console.log('[Service Worker] 从缓存返回', request.url);
     return cached;
   }
 
@@ -109,7 +108,7 @@ async function networkFirst(request) {
 
   try {
     const response = await fetch(request);
-    // 缓存成功的响�?
+    // 缓存成功的响应
     if (response.status === 200) {
       cache.put(request, response.clone());
     }
@@ -153,10 +152,10 @@ async function syncConversions() {
 
 // 推送通知
 self.addEventListener('push', (event) => {
-  console.log('[Service Worker] 收到推送消�?);
+  console.log('[Service Worker] 收到推送消息');
   
   const options = {
-    body: event.data ? event.data.text() : '转换完成�?,
+    body: event.data ? event.data.text() : '转换完成!',
     icon: '/pwa/icons/icon-192x192.png',
     badge: '/pwa/icons/icon-72x72.png',
     vibrate: [100, 50, 100],
@@ -173,7 +172,7 @@ self.addEventListener('push', (event) => {
 
 // 通知点击
 self.addEventListener('notificationclick', (event) => {
-  console.log('[Service Worker] 通知被点�?);
+  console.log('[Service Worker] 通知被点击');
   event.notification.close();
 
   event.waitUntil(

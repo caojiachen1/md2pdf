@@ -1,7 +1,7 @@
 {
-  "name": "Markdown to PDF 转换�?,
+  "name": "Markdown to PDF 转换器",
   "short_name": "MD2PDF",
-  "description": "�?Markdown 文件转换�?PDF，支�?LaTeX 数学公式",
+  "description": "将Markdown 文件转换为PDF，支持LaTeX 数学公式",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#667eea",
@@ -76,7 +76,7 @@
     {
       "name": "转换 Markdown",
       "short_name": "转换",
-      "description": "快速转�?Markdown 文件",
+      "description": "快速转换Markdown 文件",
       "url": "/",
       "icons": [
         {
@@ -102,18 +102,6 @@
       "short_name": "修复",
       "description": "修复 LaTeX 公式",
       "url": "/katex-web/",
-      "icons": [
-        {
-          "src": "/pwa/icons/icon-96x96.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "编号检�?,
-      "short_name": "检�?,
-      "description": "检测文件编�?,
-      "url": "/check-numbers-web/",
       "icons": [
         {
           "src": "/pwa/icons/icon-96x96.png",

@@ -15,9 +15,6 @@
     "latex-fix": "node gui/gui-launcher.js katex",
     "start:latex-fix": "node gui/gui-launcher.js katex",
     "formula-fix": "node gui/gui-launcher.js katex",
-    "check-numbers": "node cli/check-missing-numbers.js",
-    "check-numbers-gui": "node gui/check-missing-numbers-gui-server.js",
-    "start:check-numbers-gui": "node gui/check-missing-numbers-gui-server.js",
     "generate-icons": "node generate-icons.js",
     "check-pwa": "node check-pwa.js",
     "pwa-setup": "echo 'Visit http://localhost:PORT/icon-generator.html to generate PWA icons'",
@@ -28,9 +25,7 @@
     "md2pdf": "./cli/md2pdf.js",
     "md2pdf-gui": "./gui/gui-launcher.js pdf",
     "merge-gui": "./gui/merge-gui-server.js",
-    "latex-fix": "./gui/gui-launcher.js katex",
-    "check-numbers": "./cli/check-missing-numbers.js",
-    "check-numbers-gui": "./gui/check-missing-numbers-gui-server.js"
+    "latex-fix": "./gui/gui-launcher.js katex"
   },
   "exports": {
     ".": "./src/index.js",
@@ -48,7 +43,6 @@
     "web/",
     "merge-web/",
     "katex-web/",
-    "check-numbers-web/",
     "pwa/",
     "cli/",
     "gui/",
