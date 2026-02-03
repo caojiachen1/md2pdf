@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Markdown文件合并GUI服务器
+ * Markdown文件合并GUI服务�?
  * 提供可视化界面来合并文件夹中的Markdown文件并转换为PDF
  */
 
@@ -10,8 +10,8 @@ import multer from 'multer';
 import * as path from 'path';
 import * as fs from 'fs/promises';
 import { fileURLToPath, pathToFileURL } from 'url';
-import { MarkdownToPdfConverter } from './src/converter.js';
-import { ensureDir } from './src/utils.js';
+import { MarkdownToPdfConverter } from '../src/converter.js';
+import { ensureDir } from '../src/utils.js';
 import chalk from 'chalk';
 import cors from 'cors';
 import { WebSocketServer } from 'ws';
@@ -28,10 +28,10 @@ class MergeGUIServer {
     this.outputDir = path.join(__dirname, 'merge-output');
     this.tempDir = path.join(__dirname, 'merge-temp');
     
-    // 创建HTTP服务器
+    // 创建HTTP服务�?
     this.server = createServer(this.app);
     
-    // 创建WebSocket服务器
+    // 创建WebSocket服务�?
     this.wss = new WebSocketServer({ server: this.server });
     this.wsClients = new Set();
     
@@ -45,11 +45,11 @@ class MergeGUIServer {
    */
   setupWebSocket() {
     this.wss.on('connection', (ws) => {
-      console.log(chalk.blue('🔗 WebSocket客户端连接'));
+      console.log(chalk.blue('🔗 WebSocket客户端连�?));
       this.wsClients.add(ws);
       
       ws.on('close', () => {
-        console.log(chalk.blue('❌ WebSocket客户端断开'));
+        console.log(chalk.blue('�?WebSocket客户端断开'));
         this.wsClients.delete(ws);
       });
       
@@ -61,7 +61,7 @@ class MergeGUIServer {
   }
 
   /**
-   * 广播进度消息到所有连接的客户端
+   * 广播进度消息到所有连接的客户�?
    */
   broadcastProgress(data) {
     const message = JSON.stringify(data);
@@ -78,7 +78,7 @@ class MergeGUIServer {
   }
 
   /**
-   * 设置中间件
+   * 设置中间�?
    */
   setupMiddleware() {
     this.app.use(cors());
@@ -86,7 +86,7 @@ class MergeGUIServer {
     this.app.use(express.json({ limit: Infinity })); 
     this.app.use(express.urlencoded({ extended: true, limit: Infinity }));
     
-    // 静态文件服务
+    // 静态文件服�?
     this.app.use('/static', express.static(path.join(__dirname, 'merge-web')));
     this.app.use('/output', express.static(this.outputDir));
     
@@ -106,24 +106,24 @@ class MergeGUIServer {
     this.upload = multer({ 
       storage,
       fileFilter: (req, file, cb) => {
-        console.log(chalk.blue(`🔍 检查文件: ${file.originalname}`));
+        console.log(chalk.blue(`🔍 检查文�? ${file.originalname}`));
         console.log(chalk.blue(`   MIME类型: ${file.mimetype}`));
-        console.log(chalk.blue(`   字段名: ${file.fieldname}`));
+        console.log(chalk.blue(`   字段�? ${file.fieldname}`));
         
         // 检查字段名
         if (file.fieldname !== 'markdownFiles') {
-          console.log(chalk.red(`❌ 错误的字段名: ${file.fieldname}, 期望: markdownFiles`));
+          console.log(chalk.red(`�?错误的字段名: ${file.fieldname}, 期望: markdownFiles`));
           return cb(new Error(`错误的字段名: ${file.fieldname}, 期望: markdownFiles`));
         }
         
-        // 检查文件类型 - 放宽检查条件
+        // 检查文件类�?- 放宽检查条�?
         const isMarkdown = file.mimetype === 'text/markdown' || 
                           file.mimetype === 'text/plain' ||
                           file.mimetype === 'application/octet-stream' ||
                           path.extname(file.originalname).toLowerCase() === '.md';
         
         if (isMarkdown) {
-          console.log(chalk.green(`✅ 文件类型检查通过: ${file.originalname}`));
+          console.log(chalk.green(`�?文件类型检查通过: ${file.originalname}`));
           cb(null, true);
         } else {
           console.log(chalk.yellow(`⚠️ 可能不是Markdown文件，但允许上传: ${file.originalname}`));
@@ -148,17 +148,17 @@ class MergeGUIServer {
       console.log(chalk.cyan('📤 收到上传请求'));
       console.log(chalk.blue('Content-Type:', req.get('Content-Type')));
       
-      // 移除文件数量限制，使用默认的无限制
+      // 移除文件数量限制，使用默认的无限�?
       this.upload.array('markdownFiles')(req, res, (err) => {
         if (err) {
           console.error(chalk.red('Multer错误:'), err);
           if (err instanceof multer.MulterError) {
             if (err.code === 'UNEXPECTED_FIELD') {
               return res.status(400).json({ 
-                error: `不期望的字段名。期望: 'markdownFiles', 收到: '${err.field}'` 
+                error: `不期望的字段名。期�? 'markdownFiles', 收到: '${err.field}'` 
               });
             }
-            // 移除所有文件大小和数量限制的错误处理
+            // 移除所有文件大小和数量限制的错误处�?
           }
           return res.status(500).json({ error: err.message });
         }
@@ -170,7 +170,7 @@ class MergeGUIServer {
         console.log(chalk.blue('文件数量:', req.files ? req.files.length : 0));
         
         if (!req.files || req.files.length === 0) {
-          return res.status(400).json({ error: '请至少上传一个文件' });
+          return res.status(400).json({ error: '请至少上传一个文�? });
         }
 
         const files = req.files.map(file => ({
@@ -202,13 +202,13 @@ class MergeGUIServer {
         const { files, outputName, styleOptions } = req.body;
         
         if (!files || files.length === 0) {
-          return res.status(400).json({ error: '没有文件需要合并' });
+          return res.status(400).json({ error: '没有文件需要合�? });
         }
 
         // 按文件名自然排序
         const sortedFiles = files.sort((a, b) => this.naturalSort(a.originalName, b.originalName));
         
-        console.log(chalk.cyan('🔗 开始合并文件...'));
+        console.log(chalk.cyan('🔗 开始合并文�?..'));
         console.log(chalk.blue('文件顺序:'));
         sortedFiles.forEach((file, index) => {
           console.log(chalk.gray(`   ${index + 1}. ${file.originalName}`));
@@ -278,7 +278,7 @@ class MergeGUIServer {
           console.warn(chalk.yellow('⚠️ 无法删除临时文件:', error.message));
         }
 
-        console.log(chalk.green('✅ PDF合并转换完成!'));
+        console.log(chalk.green('�?PDF合并转换完成!'));
 
         res.json({
           success: true,
@@ -331,7 +331,7 @@ class MergeGUIServer {
         const filePath = path.join(this.outputDir, filename);
         
         await fs.unlink(filePath);
-        console.log(chalk.yellow(`🗑️ 删除文件: ${filename}`));
+        console.log(chalk.yellow(`🗑�?删除文件: ${filename}`));
         
         res.json({ success: true, message: '文件删除成功' });
       } catch (error) {
@@ -340,7 +340,7 @@ class MergeGUIServer {
       }
     });
 
-    // 清理上传的文件
+    // 清理上传的文�?
     this.app.post('/cleanup', async (req, res) => {
       try {
         const { files } = req.body;
@@ -413,7 +413,7 @@ class MergeGUIServer {
   }
 
   /**
-   * 启动服务器
+   * 启动服务�?
    */
   async start() {
     return new Promise((resolve, reject) => {
@@ -430,7 +430,7 @@ class MergeGUIServer {
   }
 
   /**
-   * 停止服务器
+   * 停止服务�?
    */
   async stop() {
     // 关闭所有WebSocket连接
@@ -455,37 +455,37 @@ export async function startMergeGUI(options = {}) {
 // 直接运行
 async function main() {
   console.log(chalk.cyan.bold(`
-┌─────────────────────────────────────────┐
-│  📚 Markdown 文件合并可视化界面          │
-│  🔗 智能合并 | 📄 PDF转换 | 🎨 样式定制    │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────�?
+�? 📚 Markdown 文件合并可视化界�?         �?
+�? 🔗 智能合并 | 📄 PDF转换 | 🎨 样式定制    �?
+└─────────────────────────────────────────�?
 `));
 
   try {
     const port = process.env.PORT || 3003;
     const server = await startMergeGUI({ port });
     
-    console.log(chalk.green('\n✨ 合并GUI服务器启动成功!'));
+    console.log(chalk.green('\n�?合并GUI服务器启动成�?'));
     console.log(chalk.yellow(`🌍 请在浏览器中访问: http://localhost:${port}`));
     console.log(chalk.blue('📁 支持拖拽上传多个Markdown文件'));
     console.log(chalk.blue('🔄 自动按文件名自然排序'));
     console.log(chalk.blue('🎨 可自定义PDF样式选项'));
-    console.log(chalk.gray('\n按 Ctrl+C 停止服务器\n'));
+    console.log(chalk.gray('\n�?Ctrl+C 停止服务器\n'));
     
-    // 优雅地处理退出
+    // 优雅地处理退�?
     process.on('SIGINT', async () => {
-      console.log(chalk.yellow('\n👋 正在关闭服务器...'));
+      console.log(chalk.yellow('\n👋 正在关闭服务�?..'));
       await server.stop();
       process.exit(0);
     });
 
   } catch (error) {
-    console.error(chalk.red('❌ 启动失败:'), error.message);
+    console.error(chalk.red('�?启动失败:'), error.message);
     process.exit(1);
   }
 }
 
-// 如果直接运行此文件
+// 如果直接运行此文�?
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main();
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 文件编号检测 GUI 服务器
+ * 文件编号检�?GUI 服务�?
  * 提供可视化界面来检测文件夹中缺失的编号
  */
 
@@ -11,7 +11,7 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import chalk from 'chalk';
-import { extractNumbers, extractMainNumber } from './src/utils.js';
+import { extractNumbers, extractMainNumber } from '../src/utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,18 +19,18 @@ const __dirname = path.dirname(__filename);
 // 创建 Express 应用
 const app = express();
 
-// 中间件配置
-app.use(express.json({ limit: '50mb' })); // 增加JSON请求体大小限制
-app.use(express.urlencoded({ extended: true, limit: '50mb' })); // 增加URL编码请求体大小限制
+// 中间件配�?
+app.use(express.json({ limit: '50mb' })); // 增加JSON请求体大小限�?
+app.use(express.urlencoded({ extended: true, limit: '50mb' })); // 增加URL编码请求体大小限�?
 
-// 静态文件服务
+// 静态文件服�?
 app.use('/static', express.static(path.join(__dirname, 'check-numbers-web')));
 
 /**
  * 检测文件夹中的文件
- * @param {string} folderPath - 文件夹路径
+ * @param {string} folderPath - 文件夹路�?
  * @param {Object} options - 选项
- * @returns {Object} 检测结果
+ * @returns {Object} 检测结�?
  */
 async function checkMissingNumbers(folderPath, options = {}) {
   const {
@@ -52,7 +52,7 @@ async function checkMissingNumbers(folderPath, options = {}) {
         if (entry.isDirectory() && recursive) {
           await scanDirectory(fullPath, currentDepth + 1);
         } else if (entry.isFile()) {
-          // 文件扩展名过滤
+          // 文件扩展名过�?
           if (fileExtension && !entry.name.toLowerCase().endsWith(fileExtension.toLowerCase())) {
             continue;
           }
@@ -86,7 +86,7 @@ async function checkMissingNumbers(folderPath, options = {}) {
       }
     });
     
-    // 按数字排序
+    // 按数字排�?
     filesWithNumbers.sort((a, b) => a.number - b.number);
     
     // 检测缺失的数字
@@ -104,7 +104,7 @@ async function checkMissingNumbers(folderPath, options = {}) {
       }
     }
     
-    // 检测重复数字
+    // 检测重复数�?
     const duplicates = [];
     const numberCounts = {};
     
@@ -133,13 +133,13 @@ async function checkMissingNumbers(folderPath, options = {}) {
     };
     
   } catch (error) {
-    throw new Error(`无法扫描文件夹 ${folderPath}: ${error.message}`);
+    throw new Error(`无法扫描文件�?${folderPath}: ${error.message}`);
   }
 }
 
 /**
  * 格式化缺失数字为范围显示
- * @param {Array} missingNumbers - 缺失的数字数组
+ * @param {Array} missingNumbers - 缺失的数字数�?
  * @returns {Array} 格式化的范围数组
  */
 function formatMissingRanges(missingNumbers) {
@@ -173,12 +173,12 @@ function formatMissingRanges(missingNumbers) {
 
 // 路由处理
 
-// 主页面
+// 主页�?
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'check-numbers-web', 'index.html'));
 });
 
-// API: 从文件列表中提取文件夹路径
+// API: 从文件列表中提取文件夹路�?
 app.post('/api/extract-folder-path', async (req, res) => {
   try {
     const { files } = req.body;
@@ -186,7 +186,7 @@ app.post('/api/extract-folder-path', async (req, res) => {
     if (!files || !Array.isArray(files) || files.length === 0) {
       return res.status(400).json({
         success: false,
-        error: '请提供文件列表'
+        error: '请提供文件列�?
       });
     }
     
@@ -240,12 +240,12 @@ app.post('/api/extract-folder-path', async (req, res) => {
     } else {
       res.status(400).json({
         success: false,
-        error: '无法从文件路径中提取文件夹信息'
+        error: '无法从文件路径中提取文件夹信�?
       });
     }
     
   } catch (error) {
-    console.error('提取文件夹路径错误:', error);
+    console.error('提取文件夹路径错�?', error);
     res.status(500).json({
       success: false,
       error: error.message
@@ -253,7 +253,7 @@ app.post('/api/extract-folder-path', async (req, res) => {
   }
 });
 
-// API: 使用文件系统句柄检测编号
+// API: 使用文件系统句柄检测编�?
 app.post('/api/check-with-handle', async (req, res) => {
   try {
     const { 
@@ -266,7 +266,7 @@ app.post('/api/check-with-handle', async (req, res) => {
     if (!files || !Array.isArray(files)) {
       return res.status(400).json({ 
         success: false, 
-        error: '请提供文件列表' 
+        error: '请提供文件列�? 
       });
     }
     
@@ -305,7 +305,7 @@ app.post('/api/check-with-handle', async (req, res) => {
       }
     });
     
-    // 按数字排序
+    // 按数字排�?
     filesWithNumbers.sort((a, b) => a.number - b.number);
     
     // 检测缺失的数字
@@ -323,7 +323,7 @@ app.post('/api/check-with-handle', async (req, res) => {
       }
     }
     
-    // 检测重复数字
+    // 检测重复数�?
     const duplicates = [];
     const numberCounts = {};
     
@@ -342,7 +342,7 @@ app.post('/api/check-with-handle', async (req, res) => {
       }
     });
     
-    // 格式化缺失范围
+    // 格式化缺失范�?
     const missingRanges = formatMissingRanges(missingNumbers);
     
     res.json({
@@ -355,7 +355,7 @@ app.post('/api/check-with-handle', async (req, res) => {
         duplicates: duplicates,
         numberRange: numbers.length > 0 ? { min: Math.min(...numbers), max: Math.max(...numbers) } : null,
         missingRanges: missingRanges,
-        enhancedMode: true, // 标记为增强模式
+        enhancedMode: true, // 标记为增强模�?
         summary: {
           totalFiles: filteredFiles.length,
           filesWithNumbers: filesWithNumbers.length,
@@ -368,7 +368,7 @@ app.post('/api/check-with-handle', async (req, res) => {
     });
     
   } catch (error) {
-    console.error('文件系统句柄检测错误:', error);
+    console.error('文件系统句柄检测错�?', error);
     res.status(500).json({
       success: false,
       error: error.message
@@ -381,14 +381,14 @@ app.post('/api/register-protocol', (req, res) => {
   try {
     const protocolInfo = {
       protocol: 'filecheck://',
-      description: '文件编号检测工具协议',
+      description: '文件编号检测工具协�?,
       supported: false,
       instructions: [
         '1. 创建注册表项 (Windows):',
         'HKEY_CLASSES_ROOT\\filecheck',
         'HKEY_CLASSES_ROOT\\filecheck\\shell\\open\\command',
-        '2. 设置命令值: "node check-missing-numbers-gui-server.js --path=%1"',
-        '3. 在文件管理器中使用: filecheck://C:\\path\\to\\folder'
+        '2. 设置命令�? "node check-missing-numbers-gui-server.js --path=%1"',
+        '3. 在文件管理器中使�? filecheck://C:\\path\\to\\folder'
       ]
     };
     
@@ -406,7 +406,7 @@ app.post('/api/register-protocol', (req, res) => {
   }
 });
 
-// API: 本地路径检测
+// API: 本地路径检�?
 app.post('/api/check-local-path', async (req, res) => {
   try {
     const { localPath } = req.body;
@@ -414,11 +414,11 @@ app.post('/api/check-local-path', async (req, res) => {
     if (!localPath) {
       return res.status(400).json({
         success: false,
-        error: '请提供本地路径'
+        error: '请提供本地路�?
       });
     }
     
-    // 检查路径是否存在
+    // 检查路径是否存�?
     try {
       await fs.access(localPath);
       
@@ -450,7 +450,7 @@ app.post('/api/check-local-path', async (req, res) => {
     }
     
   } catch (error) {
-    console.error('本地路径检测错误:', error);
+    console.error('本地路径检测错�?', error);
     res.status(500).json({
       success: false,
       error: error.message
@@ -458,7 +458,7 @@ app.post('/api/check-local-path', async (req, res) => {
   }
 });
 
-// API: 检测文件编号
+// API: 检测文件编�?
 app.post('/api/check', async (req, res) => {
   try {
     const { 
@@ -481,7 +481,7 @@ app.post('/api/check', async (req, res) => {
     } catch (error) {
       return res.status(400).json({ 
         success: false, 
-        error: `文件夹不存在或无法访问: ${folderPath}` 
+        error: `文件夹不存在或无法访�? ${folderPath}` 
       });
     }
     
@@ -491,7 +491,7 @@ app.post('/api/check', async (req, res) => {
       strategy
     });
     
-    // 格式化缺失范围
+    // 格式化缺失范�?
     const missingRanges = formatMissingRanges(result.missingNumbers);
     
     res.json({
@@ -511,7 +511,7 @@ app.post('/api/check', async (req, res) => {
     });
     
   } catch (error) {
-    console.error('检测错误:', error);
+    console.error('检测错�?', error);
     res.status(500).json({
       success: false,
       error: error.message
@@ -519,7 +519,7 @@ app.post('/api/check', async (req, res) => {
   }
 });
 
-// API: 获取文件夹列表 (用于路径提示)
+// API: 获取文件夹列�?(用于路径提示)
 app.post('/api/list-folders', async (req, res) => {
   try {
     const { parentPath = process.cwd() } = req.body;
@@ -530,13 +530,13 @@ app.post('/api/list-folders', async (req, res) => {
       return res.json({
         success: true,
         data: {
-          currentPath: '计算机',
+          currentPath: '计算�?,
           folders: drives
         }
       });
     }
     
-    // 检查路径是否存在
+    // 检查路径是否存�?
     try {
       await fs.access(parentPath);
     } catch (error) {
@@ -565,7 +565,7 @@ app.post('/api/list-folders', async (req, res) => {
     });
     
   } catch (error) {
-    console.error('获取文件夹列表错误:', error);
+    console.error('获取文件夹列表错�?', error);
     res.status(500).json({
       success: false,
       error: error.message
@@ -574,7 +574,7 @@ app.post('/api/list-folders', async (req, res) => {
 });
 
 /**
- * 获取Windows驱动器列表
+ * 获取Windows驱动器列�?
  */
 async function getWindowsDrives() {
   if (process.platform !== 'win32') {
@@ -593,19 +593,19 @@ async function getWindowsDrives() {
         path: drivePath
       });
     } catch (error) {
-      // 驱动器不存在，跳过
+      // 驱动器不存在，跳�?
     }
   }
   
   return drives;
 }
 
-// 错误处理中间件
+// 错误处理中间�?
 app.use((error, req, res, next) => {
-  console.error('服务器错误:', error);
+  console.error('服务器错�?', error);
   res.status(500).json({
     success: false,
-    error: '服务器内部错误'
+    error: '服务器内部错�?
   });
 });
 
@@ -613,12 +613,12 @@ app.use((error, req, res, next) => {
 app.use((req, res) => {
   res.status(404).json({
     success: false,
-    error: '接口不存在'
+    error: '接口不存�?
   });
 });
 
 /**
- * 启动服务器
+ * 启动服务�?
  */
 async function startServer() {
   const port = process.env.PORT || 3003;
@@ -634,39 +634,39 @@ async function startServer() {
   
   app.listen(port, () => {
     console.log(chalk.cyan.bold(`
-┌─────────────────────────────────────────┐
-│  🔍 文件编号检测 可视化界面启动器        │
-│  📊 编号分析 | 🚨 缺失检测 | 📋 详细报告   │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────�?
+�? 🔍 文件编号检�?可视化界面启动器        �?
+�? 📊 编号分析 | 🚨 缺失检�?| 📋 详细报告   �?
+└─────────────────────────────────────────�?
 `));
     
-    console.log(chalk.green('✨ 服务器启动成功!'));
+    console.log(chalk.green('�?服务器启动成�?'));
     console.log(chalk.yellow(`🌍 请在浏览器中访问: http://localhost:${port}`));
     console.log(chalk.blue(`📁 Web文件目录: ${webDir}`));
-    console.log(chalk.gray('\n按 Ctrl+C 停止服务器\n'));
+    console.log(chalk.gray('\n�?Ctrl+C 停止服务器\n'));
   });
   
-  // 优雅地处理退出
+  // 优雅地处理退�?
   process.on('SIGINT', () => {
-    console.log(chalk.yellow('\n👋 正在关闭服务器...'));
+    console.log(chalk.yellow('\n👋 正在关闭服务�?..'));
     process.exit(0);
   });
   
   process.on('uncaughtException', (error) => {
-    console.error(chalk.red('❌ 未捕获的异常:'), error);
+    console.error(chalk.red('�?未捕获的异常:'), error);
     process.exit(1);
   });
   
   process.on('unhandledRejection', (reason, promise) => {
-    console.error(chalk.red('❌ 未处理的Promise拒绝:'), reason);
+    console.error(chalk.red('�?未处理的Promise拒绝:'), reason);
     process.exit(1);
   });
 }
 
-// 如果直接运行此文件，启动服务器
+// 如果直接运行此文件，启动服务�?
 if (process.argv[1] && process.argv[1].endsWith('check-missing-numbers-gui-server.js')) {
   startServer().catch(error => {
-    console.error(chalk.red('❌ 启动失败:'), error);
+    console.error(chalk.red('�?启动失败:'), error);
     process.exit(1);
   });
 }
