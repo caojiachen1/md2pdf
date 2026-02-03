@@ -63,7 +63,7 @@ async function main() {
         break;
 
       case 'merge':
-        console.log(chalk.red('合并GUI需要单独的服务器文件，请使用 node merge-gui-server.js'));
+        console.log(chalk.red('合并GUI需要单独的服务器文件，请使用 node gui/gui-merge-server.js'));
         process.exit(1);
         break;
 

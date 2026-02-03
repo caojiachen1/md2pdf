@@ -5,11 +5,11 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "convert": "node cli/md2pdf.js",
-    "dev": "node cli/md2pdf.js",
+    "convert": "node cli/md-to-pdf.js",
+    "dev": "node cli/md-to-pdf.js",
     "merge": "node cli/merge-md-to-pdf.js",
-    "merge-gui": "node gui/merge-gui-server.js",
-    "start:merge-gui": "node gui/merge-gui-server.js",
+    "merge-gui": "node gui/gui-merge-server.js",
+    "start:merge-gui": "node gui/gui-merge-server.js",
     "gui": "node gui/gui-launcher.js pdf",
     "start:gui": "node gui/gui-launcher.js pdf",
     "latex-fix": "node gui/gui-launcher.js katex",
@@ -19,9 +19,9 @@
     "test": "echo 'No tests specified'"
   },
   "bin": {
-    "md2pdf": "./cli/md2pdf.js",
+    "md2pdf": "./cli/md-to-pdf.js",
     "md2pdf-gui": "./gui/gui-launcher.js pdf",
-    "merge-gui": "./gui/merge-gui-server.js",
+    "merge-gui": "./gui/gui-merge-server.js",
     "latex-fix": "./gui/gui-launcher.js katex"
   },
   "exports": {

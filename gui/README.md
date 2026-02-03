@@ -5,7 +5,7 @@
 ## 文件说明
 
 - `gui-launcher.js` - GUI启动器，支持启动不同的GUI服务器
-- `merge-gui-server.js` - 合并Markdown文件的GUI服务器
+- `gui-merge-server.js` - 合并Markdown文件的GUI服务器
 
 ## 使用方法
 
@@ -17,7 +17,7 @@ node gui/gui-launcher.js pdf
 node gui/gui-launcher.js katex
 
 # 启动合并GUI
-node gui/merge-gui-server.js
+node gui/gui-merge-server.js
 ```
 
 或者使用npm scripts：

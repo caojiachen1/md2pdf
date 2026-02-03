@@ -130,77 +130,77 @@ PWA：在启动任一 GUI 服务器并打开页面后，可在浏览器中安装
 
 ```bash
 # Basic conversion
-node cli/md2pdf.js input.md
+node cli/md-to-pdf.js input.md
 
 # Custom output
-node cli/md2pdf.js input.md output.pdf
+node cli/md-to-pdf.js input.md output.pdf
 
 # HTML output
-node cli/md2pdf.js input.md --format html
+node cli/md-to-pdf.js input.md --format html
 
 # Choose math engine
-node cli/md2pdf.js input.md output.pdf --math-engine auto     # default, KaTeX first, fallback to MathJax
-node cli/md2pdf.js input.md output.pdf --math-engine katex    # force KaTeX (offline)
-node cli/md2pdf.js input.md output.pdf --math-engine mathjax  # force MathJax (higher compatibility)
+node cli/md-to-pdf.js input.md output.pdf --math-engine auto     # default, KaTeX first, fallback to MathJax
+node cli/md-to-pdf.js input.md output.pdf --math-engine katex    # force KaTeX (offline)
+node cli/md-to-pdf.js input.md output.pdf --math-engine mathjax  # force MathJax (higher compatibility)
 
 # MathJax is rendered locally on Node side; no CDN needed
 
 # Custom margins
-node cli/md2pdf.js input.md --margin 25mm
+node cli/md-to-pdf.js input.md --margin 25mm
 
 # Landscape orientation
-node cli/md2pdf.js input.md --landscape
+node cli/md-to-pdf.js input.md --landscape
 
 # Font size options
-node cli/md2pdf.js input.md --font-size small    # 12px
-node cli/md2pdf.js input.md --font-size medium   # 14px (default)
-node cli/md2pdf.js input.md --font-size large    # 16px
-node cli/md2pdf.js input.md --font-size xlarge   # 18px
-node cli/md2pdf.js input.md --font-size 20px     # Custom size
+node cli/md-to-pdf.js input.md --font-size small    # 12px
+node cli/md-to-pdf.js input.md --font-size medium   # 14px (default)
+node cli/md-to-pdf.js input.md --font-size large    # 16px
+node cli/md-to-pdf.js input.md --font-size xlarge   # 18px
+node cli/md-to-pdf.js input.md --font-size 20px     # Custom size
 
 # Chinese font options
-node cli/md2pdf.js input.md --chinese-font auto      # Auto selection (default)
-node cli/md2pdf.js input.md --chinese-font simsun    # 宋体 (SimSun)
-node cli/md2pdf.js input.md --chinese-font simhei    # 黑体 (SimHei)
-node cli/md2pdf.js input.md --chinese-font simkai    # 楷体 (KaiTi)
-node cli/md2pdf.js input.md --chinese-font fangsong  # 仿宋 (FangSong)
-node cli/md2pdf.js input.md --chinese-font yahei     # 微软雅黑 (Microsoft YaHei)
+node cli/md-to-pdf.js input.md --chinese-font auto      # Auto selection (default)
+node cli/md-to-pdf.js input.md --chinese-font simsun    # 宋体 (SimSun)
+node cli/md-to-pdf.js input.md --chinese-font simhei    # 黑体 (SimHei)
+node cli/md-to-pdf.js input.md --chinese-font simkai    # 楷体 (KaiTi)
+node cli/md-to-pdf.js input.md --chinese-font fangsong  # 仿宋 (FangSong)
+node cli/md-to-pdf.js input.md --chinese-font yahei     # 微软雅黑 (Microsoft YaHei)
 
 # Font weight options
-node cli/md2pdf.js input.md --font-weight light      # 细体 (300)
-node cli/md2pdf.js input.md --font-weight normal     # 正常 (400, default)
-node cli/md2pdf.js input.md --font-weight medium     # 中等 (500)
-node cli/md2pdf.js input.md --font-weight semibold   # 半粗体(600)
-node cli/md2pdf.js input.md --font-weight bold       # 粗体 (700)
-node cli/md2pdf.js input.md --font-weight black      # 超粗体(900)
-node cli/md2pdf.js input.md --font-weight 600        # Custom weight
+node cli/md-to-pdf.js input.md --font-weight light      # 细体 (300)
+node cli/md-to-pdf.js input.md --font-weight normal     # 正常 (400, default)
+node cli/md-to-pdf.js input.md --font-weight medium     # 中等 (500)
+node cli/md-to-pdf.js input.md --font-weight semibold   # 半粗体(600)
+node cli/md-to-pdf.js input.md --font-weight bold       # 粗体 (700)
+node cli/md-to-pdf.js input.md --font-weight black      # 超粗体(900)
+node cli/md-to-pdf.js input.md --font-weight 600        # Custom weight
 
 # Line spacing options
-node cli/md2pdf.js input.md --line-spacing tight     # 紧密行间距(1.2)
-node cli/md2pdf.js input.md --line-spacing normal    # 正常行间距(1.6, default)
-node cli/md2pdf.js input.md --line-spacing loose     # 宽松行间距(2.0)
-node cli/md2pdf.js input.md --line-spacing relaxed   # 极宽松行间距 (2.4)
-node cli/md2pdf.js input.md --line-spacing 1.8       # Custom line height
+node cli/md-to-pdf.js input.md --line-spacing tight     # 紧密行间距(1.2)
+node cli/md-to-pdf.js input.md --line-spacing normal    # 正常行间距(1.6, default)
+node cli/md-to-pdf.js input.md --line-spacing loose     # 宽松行间距(2.0)
+node cli/md-to-pdf.js input.md --line-spacing relaxed   # 极宽松行间距 (2.4)
+node cli/md-to-pdf.js input.md --line-spacing 1.8       # Custom line height
 
 # Paragraph spacing options
-node cli/md2pdf.js input.md --paragraph-spacing tight     # 紧密段落间距 (0.5em)
-node cli/md2pdf.js input.md --paragraph-spacing normal    # 正常段落间距 (1em, default)
-node cli/md2pdf.js input.md --paragraph-spacing loose     # 宽松段落间距 (1.5em)
-node cli/md2pdf.js input.md --paragraph-spacing relaxed   # 极宽松段落间距(2em)
-node cli/md2pdf.js input.md --paragraph-spacing 1.2em     # Custom spacing
+node cli/md-to-pdf.js input.md --paragraph-spacing tight     # 紧密段落间距 (0.5em)
+node cli/md-to-pdf.js input.md --paragraph-spacing normal    # 正常段落间距 (1em, default)
+node cli/md-to-pdf.js input.md --paragraph-spacing loose     # 宽松段落间距 (1.5em)
+node cli/md-to-pdf.js input.md --paragraph-spacing relaxed   # 极宽松段落间距(2em)
+node cli/md-to-pdf.js input.md --paragraph-spacing 1.2em     # Custom spacing
 
 # Math formula spacing options
-node cli/md2pdf.js input.md --math-spacing tight     # 紧密公式间距 (10px)
-node cli/md2pdf.js input.md --math-spacing normal    # 正常公式间距 (20px, default)
-node cli/md2pdf.js input.md --math-spacing loose     # 宽松公式间距 (30px)
-node cli/md2pdf.js input.md --math-spacing relaxed   # 极宽松公式间距(40px)
-node cli/md2pdf.js input.md --math-spacing 25px      # Custom spacing
+node cli/md-to-pdf.js input.md --math-spacing tight     # 紧密公式间距 (10px)
+node cli/md-to-pdf.js input.md --math-spacing normal    # 正常公式间距 (20px, default)
+node cli/md-to-pdf.js input.md --math-spacing loose     # 宽松公式间距 (30px)
+node cli/md-to-pdf.js input.md --math-spacing relaxed   # 极宽松公式间距(40px)
+node cli/md-to-pdf.js input.md --math-spacing 25px      # Custom spacing
 
 # Combined options
-node cli/md2pdf.js input.md --font-size large --chinese-font yahei --font-weight semibold --line-spacing loose --paragraph-spacing relaxed --math-spacing loose --margin 30mm
+node cli/md-to-pdf.js input.md --font-size large --chinese-font yahei --font-weight semibold --line-spacing loose --paragraph-spacing relaxed --math-spacing loose --margin 30mm
 
 # Help
-node cli/md2pdf.js --help
+node cli/md-to-pdf.js --help
 ```
 
 ## Programmatic Usage

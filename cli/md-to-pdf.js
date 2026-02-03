@@ -4,7 +4,7 @@
  * Markdown LaTeX to PDF Converter - 主入口文件
  * 
  * 功能：将包含LaTeX数学公式的Markdown文件转换为PDF
- * 使用：node md2pdf.js <markdown文件路径> [输出PDF路径]
+ * 使用：node md-to-pdf.js <markdown文件路径> [输出PDF路径]
  */
 
 import { runCLI } from '../src/cli.js';
