@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="LaTeX 公式修复助手 - 修复和优化数学公�?>
+    <meta name="description" content="LaTeX 公式修复助手 - 修复和优化数学公式">
     <meta name="theme-color" content="#667eea">
     
     <!-- PWA 支持 -->
@@ -1076,7 +1076,7 @@
     <div class="container">
         <div class="header">
             <h1>📐 LaTeX公式修复助手</h1>
-            <p>智能检测Markdown中的数学公式错误 | AI纠错 | 一键修�?/p>
+            <p>智能检测Markdown中的数学公式错误 | AI纠错 | 一键修�?/p>
         </div>
 
         <div class="main-content">
@@ -1088,7 +1088,7 @@
                 <!-- 检测模式选择 -->
                 <div class="mode-tabs">
                     <button class="tab-btn active" data-mode="file">📄 单个文件</button>
-                    <button class="tab-btn" data-mode="folder">📁 文件夹批�?/button>
+                    <button class="tab-btn" data-mode="folder">📁 文件夹批�?/button>
                     <button class="tab-btn" data-mode="text">📝 直接输入</button>
                 </div>
 
@@ -1097,7 +1097,7 @@
                     <div class="upload-area" onclick="document.getElementById('fileInput').click()">
                         <div class="upload-icon">📄</div>
                         <div class="upload-text">
-                            点击选择或拖拽Markdown文件到此�?br>
+                            点击选择或拖拽Markdown文件到此�?br>
                             支持 .md 格式文件
                         </div>
                         <button class="upload-btn" type="button">选择文件</button>
@@ -1105,22 +1105,22 @@
                     <input type="file" id="fileInput" class="file-input" accept=".md,.markdown" />
                 </div>
 
-                <!-- 文件夹模�?-->
+                <!-- 文件夹模�?-->
                 <div class="mode-content" id="folder-mode" style="display: none;">
                     <div class="folder-selection-methods">
-                        <!-- 方法1: 文件夹选择�?-->
+                        <!-- 方法1: 文件夹选择�?-->
                         <div class="selection-method">
-                            <h4>📁 方法一：选择文件�?/h4>
+                            <h4>📁 方法一：选择文件�?/h4>
                             <div class="folder-upload-area" onclick="document.getElementById('folderInput').click()">
                                 <div class="upload-icon">📁</div>
                                 <div class="upload-text">
-                                    点击选择文件�?br>
-                                    <small>将读取文件夹中的所�?.md 文件</small>
+                                    点击选择文件�?br>
+                                    <small>将读取文件夹中的所�?.md 文件</small>
                                 </div>
-                                <button class="upload-btn" type="button">选择文件�?/button>
+                                <button class="upload-btn" type="button">选择文件�?/button>
                             </div>
                             <input type="file" id="folderInput" class="file-input" webkitdirectory multiple />
-                            <p class="help-text">�?推荐：直接选择包含Markdown文件的文件夹</p>
+                            <p class="help-text">�?推荐：直接选择包含Markdown文件的文件夹</p>
                         </div>
 
                         <!-- 方法2: 多文件选择 -->
@@ -1142,18 +1142,18 @@
                             <h4>📝 方法三：手动输入路径</h4>
                             <div class="folder-input-section">
                                 <div class="form-group">
-                                    <label for="folderPath">文件夹绝对路�?/label>
+                                    <label for="folderPath">文件夹绝对路�?/label>
                                     <input type="text" id="folderPath" class="folder-path-input" 
                                            placeholder="例如: C:\Users\用户名\Documents\markdown-files" />
                                     <div class="path-examples">
                                         <small>
-                                            <strong>路径示例�?/strong><br>
+                                            <strong>路径示例�?/strong><br>
                                             Windows: <code>C:\Users\用户名\Documents\my-docs</code><br>
-                                            macOS/Linux: <code>/Users/用户�?Documents/my-docs</code>
+                                            macOS/Linux: <code>/Users/用户�?Documents/my-docs</code>
                                         </small>
                                     </div>
                                 </div>
-                                <p class="help-text">⚠️ 注意：需要服务器有访问该路径的权�?/p>
+                                <p class="help-text">⚠️ 注意：需要服务器有访问该路径的权�?/p>
                             </div>
                         </div>
                     </div>
@@ -1177,7 +1177,7 @@
                 
                 <div class="options-section">
                     <div class="form-group">
-                        <label>LLM 提供商设�?/label>
+                        <label>LLM 提供商设�?/label>
                         <div class="llm-config-container">
                             <!-- LLM 提供商选择 -->
                             <div class="provider-selection">
@@ -1233,12 +1233,12 @@
                                     </div>
                                 </div>
                                 <div class="config-group">
-                                    <label for="lmstudio-prompt">系统提示�?/label>
+                                    <label for="lmstudio-prompt">系统提示�?/label>
                                     <textarea id="lmstudio-prompt" rows="3" placeholder="根据输入的latex和katex解析报错,输出修正过后的latex公式,不要输出其他任何东西,只要修正后的公式">根据输入的latex和katex解析报错,输出修正过后的latex公式,不要输出其他任何东西,只要修正后的公式</textarea>
                                 </div>
                                 <div class="config-status">
                                     <button type="button" class="test-connection-btn" data-provider="lmstudio">测试连接</button>
-                                    <span class="status-indicator" id="lmstudio-status">未连�?/span>
+                                    <span class="status-indicator" id="lmstudio-status">未连�?/span>
                                 </div>
                             </div>
                             
@@ -1258,12 +1258,12 @@
                                     </div>
                                 </div>
                                 <div class="config-group">
-                                    <label for="ollama-prompt">系统提示�?/label>
+                                    <label for="ollama-prompt">系统提示�?/label>
                                     <textarea id="ollama-prompt" rows="3" placeholder="根据输入的latex和katex解析报错,输出修正过后的latex公式,不要输出其他任何东西,只要修正后的公式">根据输入的latex和katex解析报错,输出修正过后的latex公式,不要输出其他任何东西,只要修正后的公式</textarea>
                                 </div>
                                 <div class="config-status">
                                     <button type="button" class="test-connection-btn" data-provider="ollama">测试连接</button>
-                                    <span class="status-indicator" id="ollama-status">未连�?/span>
+                                    <span class="status-indicator" id="ollama-status">未连�?/span>
                                 </div>
                             </div>
                             
@@ -1290,12 +1290,12 @@
                                     </div>
                                 </div>
                                 <div class="config-group">
-                                    <label for="openai-prompt">系统提示�?/label>
+                                    <label for="openai-prompt">系统提示�?/label>
                                     <textarea id="openai-prompt" rows="3" placeholder="根据输入的latex和katex解析报错,输出修正过后的latex公式,不要输出其他任何东西,只要修正后的公式">根据输入的latex和katex解析报错,输出修正过后的latex公式,不要输出其他任何东西,只要修正后的公式</textarea>
                                 </div>
                                 <div class="config-status">
                                     <button type="button" class="test-connection-btn" data-provider="openai">测试连接</button>
-                                    <span class="status-indicator" id="openai-status">未连�?/span>
+                                    <span class="status-indicator" id="openai-status">未连�?/span>
                                 </div>
                             </div>
                         </div>
@@ -1307,7 +1307,7 @@
                 </div>
                 
                 <button class="check-btn" id="checkBtn" disabled>
-                    🧠 开始分�?
+                    🧠 开始分�?
                 </button>
                 
                 <div class="progress-bar" id="progressBar">
@@ -1339,9 +1339,9 @@
 
                 <div class="batch-actions" id="batchActions" style="display: none;">
                     <h3 style="margin-bottom: 15px; color: #4a5568;">批量操作</h3>
-                    <button class="batch-btn" id="fixAllBtn">🔧 一键修复所有错�?/button>
-                    <button class="batch-btn" id="acceptAllBtn" style="display: none;">�?接受所有修�?/button>
-                    <button class="batch-btn danger" id="rejectAllBtn" style="display: none;">�?拒绝所有修�?/button>
+                    <button class="batch-btn" id="fixAllBtn">🔧 一键修复所有错�?/button>
+                    <button class="batch-btn" id="acceptAllBtn" style="display: none;">�?接受所有修�?/button>
+                    <button class="batch-btn danger" id="rejectAllBtn" style="display: none;">�?拒绝所有修�?/button>
                 </div>
                 
                 <div class="errors-list" id="errorsList">
@@ -1359,7 +1359,7 @@
         let corrections = {};
         let currentMode = 'file';
         
-        // 初始�?
+        // 初始�?
         document.addEventListener('DOMContentLoaded', function() {
             setupEventListeners();
         });
@@ -1386,7 +1386,7 @@
             uploadArea.addEventListener('drop', handleDrop);
             uploadArea.addEventListener('dragleave', handleDragLeave);
             
-            // 检测按�?
+            // 检测按�?
             checkBtn.addEventListener('click', handleCheck);
 
             // 文本输入监听
@@ -1398,19 +1398,19 @@
             document.getElementById('acceptAllBtn').addEventListener('click', handleAcceptAll);
             document.getElementById('rejectAllBtn').addEventListener('click', handleRejectAll);
             
-            // LLM设置相关事件监听�?
+            // LLM设置相关事件监听�?
             setupLLMSettingsEventListeners();
         }
 
         function switchMode(mode) {
             currentMode = mode;
             
-            // 更新标签状�?
+            // 更新标签状�?
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.mode === mode);
             });
 
-            // 隐藏所有内�?
+            // 隐藏所有内�?
             document.querySelectorAll('.mode-content').forEach(content => {
                 content.style.display = 'none';
             });
@@ -1418,7 +1418,7 @@
             // 显示当前模式内容
             document.getElementById(`${mode}-mode`).style.display = 'block';
 
-            // 重置状�?
+            // 重置状�?
             selectedFile = null;
             currentResults = null;
             corrections = {};
@@ -1426,7 +1426,7 @@
             resetCheckButton();
             clearResults();
             
-            // 重置所有输�?
+            // 重置所有输�?
             document.getElementById('fileInput').value = '';
             document.getElementById('folderInput').value = '';
             document.getElementById('multipleFilesInput').value = '';
@@ -1439,34 +1439,34 @@
         }
 
         function resetUploadAreas() {
-            // 重置单文件上传区�?
+            // 重置单文件上传区�?
             const uploadArea = document.querySelector('#file-mode .upload-area');
             if (uploadArea) {
                 uploadArea.innerHTML = `
                     <div class="upload-icon">📄</div>
                     <div class="upload-text">
-                        点击选择或拖拽Markdown文件到此�?br>
+                        点击选择或拖拽Markdown文件到此�?br>
                         支持 .md 格式文件
                     </div>
                     <button class="upload-btn" type="button">选择文件</button>
                 `;
             }
 
-            // 重置文件夹上传区�?
+            // 重置文件夹上传区�?
             const folderUploadArea = document.querySelector('.folder-upload-area');
             if (folderUploadArea) {
                 folderUploadArea.classList.remove('has-files');
                 folderUploadArea.innerHTML = `
                     <div class="upload-icon">📁</div>
                     <div class="upload-text">
-                        点击选择文件�?br>
-                        <small>将读取文件夹中的所�?.md 文件</small>
+                        点击选择文件�?br>
+                        <small>将读取文件夹中的所�?.md 文件</small>
                     </div>
-                    <button class="upload-btn" type="button">选择文件�?/button>
+                    <button class="upload-btn" type="button">选择文件�?/button>
                 `;
             }
 
-            // 重置多文件上传区�?
+            // 重置多文件上传区�?
             const filesUploadArea = document.querySelector('.files-upload-area');
             if (filesUploadArea) {
                 filesUploadArea.classList.remove('has-files');
@@ -1497,7 +1497,7 @@
             const checkBtn = document.getElementById('checkBtn');
             const inputValue = folderInput.value.trim();
             
-            // 重置选择器选择的文�?
+            // 重置选择器选择的文�?
             window.selectedFolderFiles = null;
             
             // 检查是否有输入路径
@@ -1515,40 +1515,40 @@
                 if (isRelativePath) {
                     validationMessage = '<span style="color: #e53e3e;">⚠️ 建议使用绝对路径</span><br>';
                 } else if (isWindowsPath || isUnixPath) {
-                    validationMessage = '<span style="color: #38a169;">�?路径格式正确</span><br>';
+                    validationMessage = '<span style="color: #38a169;">�?路径格式正确</span><br>';
                 }
                 
                 pathExamples.innerHTML = `
                     <small>
                         ${validationMessage}
-                        <strong>路径示例�?/strong><br>
+                        <strong>路径示例�?/strong><br>
                         Windows: <code>C:\\Users\\用户名\\Documents\\my-docs</code><br>
-                        macOS/Linux: <code>/Users/用户�?Documents/my-docs</code>
+                        macOS/Linux: <code>/Users/用户�?Documents/my-docs</code>
                     </small>
                 `;
             } else {
                 pathExamples.innerHTML = `
                     <small>
-                        <strong>路径示例�?/strong><br>
+                        <strong>路径示例�?/strong><br>
                         Windows: <code>C:\\Users\\用户名\\Documents\\my-docs</code><br>
-                        macOS/Linux: <code>/Users/用户�?Documents/my-docs</code>
+                        macOS/Linux: <code>/Users/用户�?Documents/my-docs</code>
                     </small>
                 `;
             }
         }
 
         function selectFolder() {
-            // 由于浏览器安全限制，无法直接选择文件�?
+            // 由于浏览器安全限制，无法直接选择文件�?
             // 提示用户手动输入路径
             const folderInput = document.getElementById('folderPath');
             folderInput.focus();
-            showResult('info', '请手动输入文件夹路径。注意：由于浏览器安全限制，无法直接选择文件夹�?);
+            showResult('info', '请手动输入文件夹路径。注意：由于浏览器安全限制，无法直接选择文件夹�?);
         }
 
         function resetCheckButton() {
             const checkBtn = document.getElementById('checkBtn');
             checkBtn.disabled = true;
-            checkBtn.textContent = '🧠 开始分�?;
+            checkBtn.textContent = '🧠 开始分�?;
         }
 
         function clearResults() {
@@ -1580,7 +1580,7 @@
                 updateFolderSelectionDisplay('folderInput', mdFiles);
                 document.getElementById('checkBtn').disabled = false;
                 
-                // 存储选中的文件以便后续处�?
+                // 存储选中的文件以便后续处�?
                 window.selectedFolderFiles = mdFiles;
             } else {
                 showResult('error', '所选文件夹中没有找到Markdown文件');
@@ -1597,7 +1597,7 @@
                 updateFolderSelectionDisplay('multipleFilesInput', mdFiles);
                 document.getElementById('checkBtn').disabled = false;
                 
-                // 存储选中的文件以便后续处�?
+                // 存储选中的文件以便后续处�?
                 window.selectedFolderFiles = mdFiles;
             } else {
                 showResult('error', '请选择Markdown文件(.md)');
@@ -1609,7 +1609,7 @@
             uploadArea.classList.add('has-files');
             
             uploadArea.innerHTML = `
-                <div class="upload-icon">�?/div>
+                <div class="upload-icon">�?/div>
                 <div class="upload-text">
                     已选择 ${files.length} 个Markdown文件<br>
                     点击可重新选择
@@ -1630,7 +1630,7 @@
                 <div class="files-list-preview">
                     <ul>
                         ${files.slice(0, 10).map(file => `<li>${file.webkitRelativePath || file.name}</li>`).join('')}
-                        ${files.length > 10 ? `<li>... 还有 ${files.length - 10} 个文�?/li>` : ''}
+                        ${files.length > 10 ? `<li>... 还有 ${files.length - 10} 个文�?/li>` : ''}
                     </ul>
                 </div>
             `;
@@ -1666,7 +1666,7 @@
         function updateUploadArea(filename) {
             const uploadArea = document.querySelector('.upload-area');
             uploadArea.innerHTML = `
-                <div class="upload-icon">�?/div>
+                <div class="upload-icon">�?/div>
                 <div class="upload-text">
                     已选择文件: <strong>${filename}</strong><br>
                     点击可重新选择文件
@@ -1694,9 +1694,9 @@
             const progressBar = document.getElementById('progressBar');
             const progressFill = document.getElementById('progressFill');
 
-            // 显示进度�?
+            // 显示进度�?
             checkBtn.disabled = true;
-            checkBtn.textContent = '🔄 分析�?..';
+            checkBtn.textContent = '🔄 分析�?..';
             progressBar.style.display = 'block';
             progressFill.style.width = '30%';
 
@@ -1728,10 +1728,10 @@
             } catch (error) {
                 showResult('error', '分析失败: ' + error.message);
             } finally {
-                // 恢复按钮状�?
+                // 恢复按钮状�?
                 setTimeout(() => {
                     checkBtn.disabled = false;
-                    checkBtn.textContent = '🧠 开始分�?;
+                    checkBtn.textContent = '🧠 开始分�?;
                     progressBar.style.display = 'none';
                     progressFill.style.width = '0%';
                 }, 1000);
@@ -1739,16 +1739,16 @@
         }
 
         async function handleFolderCheck() {
-            // 检查是否有通过文件选择器选择的文�?
+            // 检查是否有通过文件选择器选择的文�?
             if (window.selectedFolderFiles && window.selectedFolderFiles.length > 0) {
                 await handleFilesArrayCheck();
                 return;
             }
 
-            // 否则使用路径输入的方�?
+            // 否则使用路径输入的方�?
             const folderPath = document.getElementById('folderPath').value.trim();
             if (!folderPath) {
-                showResult('error', '请选择文件夹或输入文件夹路�?);
+                showResult('error', '请选择文件夹或输入文件夹路�?);
                 return;
             }
 
@@ -1757,7 +1757,7 @@
             const progressFill = document.getElementById('progressFill');
 
             checkBtn.disabled = true;
-            checkBtn.textContent = '🔄 批量分析�?..';
+            checkBtn.textContent = '🔄 批量分析�?..';
             progressBar.style.display = 'block';
             progressFill.style.width = '30%';
 
@@ -1781,17 +1781,17 @@
                     currentResults = result.results;
                     corrections = {};
                     displayFolderResults(result.results);
-                    showResult('success', `文件夹分析完成！共分�?${result.results.totalFiles} 个文件，${result.results.totalFormulas} 个公式，发现 ${result.results.totalErrors} 个错误`);
+                    showResult('success', `文件夹分析完成！共分�?${result.results.totalFiles} 个文件，${result.results.totalFormulas} 个公式，发现 ${result.results.totalErrors} 个错误`);
                 } else {
-                    throw new Error(result.message || '文件夹分析失�?);
+                    throw new Error(result.message || '文件夹分析失�?);
                 }
 
             } catch (error) {
-                showResult('error', '文件夹分析失�? ' + error.message);
+                showResult('error', '文件夹分析失�? ' + error.message);
             } finally {
                 setTimeout(() => {
                     checkBtn.disabled = false;
-                    checkBtn.textContent = '🧠 开始分�?;
+                    checkBtn.textContent = '🧠 开始分�?;
                     progressBar.style.display = 'none';
                     progressFill.style.width = '0%';
                 }, 1000);
@@ -1805,13 +1805,13 @@
             const progressFill = document.getElementById('progressFill');
 
             checkBtn.disabled = true;
-            checkBtn.textContent = '🔄 批量分析�?..';
+            checkBtn.textContent = '🔄 批量分析�?..';
             progressBar.style.display = 'block';
             progressFill.style.width = '30%';
 
             try {
                 const results = {
-                    folderPath: '浏览器选择的文�?,
+                    folderPath: '浏览器选择的文�?,
                     totalFiles: files.length,
                     processedFiles: 0,
                     filesWithErrors: 0,
@@ -1856,7 +1856,7 @@
             } finally {
                 setTimeout(() => {
                     checkBtn.disabled = false;
-                    checkBtn.textContent = '🧠 开始分�?;
+                    checkBtn.textContent = '🧠 开始分�?;
                     progressBar.style.display = 'none';
                     progressFill.style.width = '0%';
                 }, 1000);
@@ -1888,7 +1888,7 @@
             if (result.success) {
                 return result.results;
             } else {
-                throw new Error(result.message || '检测失�?);
+                throw new Error(result.message || '检测失�?);
             }
         }
 
@@ -1906,7 +1906,7 @@
             const progressFill = document.getElementById('progressFill');
 
             checkBtn.disabled = true;
-            checkBtn.textContent = '🔄 分析�?..';
+            checkBtn.textContent = '🔄 分析�?..';
             progressBar.style.display = 'block';
             progressFill.style.width = '30%';
 
@@ -1943,7 +1943,7 @@
             } finally {
                 setTimeout(() => {
                     checkBtn.disabled = false;
-                    checkBtn.textContent = '🧠 开始分�?;
+                    checkBtn.textContent = '🧠 开始分�?;
                     progressBar.style.display = 'none';
                     progressFill.style.width = '0%';
                 }, 1000);
@@ -1965,14 +1965,14 @@
                 document.getElementById('batchActions').style.display = 'none';
             }
 
-            // 显示文件夹结�?
+            // 显示文件夹结�?
             const errorsList = document.getElementById('errorsList');
             
             if (results.totalErrors === 0) {
                 errorsList.innerHTML = `
                     <div class="no-errors">
                         <div class="success-icon">🎉</div>
-                        <div>所有文件都正常！未发现错误�?/div>
+                        <div>所有文件都正常！未发现错误�?/div>
                     </div>
                 `;
                 return;
@@ -1988,14 +1988,14 @@
                             </div>
                             <div class="folder-stat">
                                 <div class="folder-stat-number">${results.processedFiles}</div>
-                                <div class="folder-stat-label">已处�?/div>
+                                <div class="folder-stat-label">已处�?/div>
                             </div>
                             <div class="folder-stat">
                                 <div class="folder-stat-number">${results.filesWithErrors}</div>
-                                <div class="folder-stat-label">有错误文�?/div>
+                                <div class="folder-stat-label">有错误文�?/div>
                             </div>
                         </div>
-                        <p style="margin: 0; color: #4a5568;">文件�? ${results.folderPath}</p>
+                        <p style="margin: 0; color: #4a5568;">文件�? ${results.folderPath}</p>
                     </div>
                     
                     <div class="files-list">
@@ -2008,7 +2008,7 @@
                                     </div>
                                 </div>
                                 <div class="file-content" id="file-content-${index}">
-                                    ${file.hasErrors ? renderFileErrors(file, index) : '<p style="color: #22543d;">�?此文件没有错�?/p>'}
+                                    ${file.hasErrors ? renderFileErrors(file, index) : '<p style="color: #22543d;">�?此文件没有错�?/p>'}
                                 </div>
                             </div>
                         `).join('')}
@@ -2055,7 +2055,7 @@
             const fixBtn = document.querySelector(`#file-${fileIndex}-error-${errorIndex} .fix-btn`);
             
             fixBtn.disabled = true;
-            fixBtn.textContent = '🔄 修正�?..';
+            fixBtn.textContent = '🔄 修正�?..';
 
             try {
                 const response = await fetch('/fix-formula', {
@@ -2104,8 +2104,8 @@
                     </div>
                 </div>
                 <div class="correction-actions">
-                    <button class="action-btn accept-btn" onclick="acceptFileCorrection(${fileIndex}, ${errorIndex})">�?接受修正</button>
-                    <button class="action-btn reject-btn" onclick="rejectFileCorrection(${fileIndex}, ${errorIndex})">�?拒绝修正</button>
+                    <button class="action-btn accept-btn" onclick="acceptFileCorrection(${fileIndex}, ${errorIndex})">�?接受修正</button>
+                    <button class="action-btn reject-btn" onclick="rejectFileCorrection(${fileIndex}, ${errorIndex})">�?拒绝修正</button>
                 </div>
             `;
             
@@ -2124,7 +2124,7 @@
             const correctionDiv = document.getElementById(`file-${fileIndex}-correction-${errorIndex}`);
             correctionDiv.innerHTML = `
                 <div style="text-align: center; padding: 20px; color: #22543d; background: #c6f6d5; border-radius: 6px;">
-                    �?已接受此修正建议
+                    �?已接受此修正建议
                 </div>
             `;
             
@@ -2141,7 +2141,7 @@
             const correctionDiv = document.getElementById(`file-${fileIndex}-correction-${errorIndex}`);
             correctionDiv.innerHTML = `
                 <div style="text-align: center; padding: 20px; color: #c53030; background: #fed7d7; border-radius: 6px;">
-                    �?已拒绝此修正建议
+                    �?已拒绝此修正建议
                 </div>
             `;
             
@@ -2172,7 +2172,7 @@
                 errorsList.innerHTML = `
                     <div class="no-errors">
                         <div class="success-icon">🎉</div>
-                        <div>所有公式都正常！未发现错误�?/div>
+                        <div>所有公式都正常！未发现错误�?/div>
                     </div>
                 `;
                 return;
@@ -2209,7 +2209,7 @@
             const fixBtn = document.querySelector(`#error-${index} .fix-btn`);
             
             fixBtn.disabled = true;
-            fixBtn.textContent = '🔄 修正�?..';
+            fixBtn.textContent = '🔄 修正�?..';
 
             try {
                 const response = await fetch('/fix-formula', {
@@ -2257,8 +2257,8 @@
                     </div>
                 </div>
                 <div class="correction-actions">
-                    <button class="action-btn accept-btn" onclick="acceptCorrection(${index})">�?接受修正</button>
-                    <button class="action-btn reject-btn" onclick="rejectCorrection(${index})">�?拒绝修正</button>
+                    <button class="action-btn accept-btn" onclick="acceptCorrection(${index})">�?接受修正</button>
+                    <button class="action-btn reject-btn" onclick="rejectCorrection(${index})">�?拒绝修正</button>
                 </div>
             `;
             
@@ -2277,7 +2277,7 @@
             const correctionDiv = document.getElementById(`correction-${index}`);
             correctionDiv.innerHTML = `
                 <div style="text-align: center; padding: 20px; color: #22543d; background: #c6f6d5; border-radius: 6px;">
-                    �?已接受此修正建议
+                    �?已接受此修正建议
                 </div>
             `;
             
@@ -2293,7 +2293,7 @@
             const correctionDiv = document.getElementById(`correction-${index}`);
             correctionDiv.innerHTML = `
                 <div style="text-align: center; padding: 20px; color: #c53030; background: #fed7d7; border-radius: 6px;">
-                    �?已拒绝此修正建议
+                    �?已拒绝此修正建议
                 </div>
             `;
             
@@ -2307,7 +2307,7 @@
             const fixAllBtn = document.getElementById('fixAllBtn');
             
             fixAllBtn.disabled = true;
-            fixAllBtn.textContent = '🔄 批量修正�?..';
+            fixAllBtn.textContent = '🔄 批量修正�?..';
 
             try {
                 const response = await fetch('/fix-batch', {
@@ -2339,7 +2339,7 @@
                         }
                     });
                     
-                    showResult('success', `批量修正完成！成功修�?${result.results.filter(r => r.success).length} 个公式`);
+                    showResult('success', `批量修正完成！成功修�?${result.results.filter(r => r.success).length} 个公式`);
                 } else {
                     throw new Error(result.message || '批量修正失败');
                 }
@@ -2348,7 +2348,7 @@
                 showResult('error', '批量修正失败: ' + error.message);
             } finally {
                 fixAllBtn.disabled = false;
-                fixAllBtn.textContent = '🔧 一键修复所有错�?;
+                fixAllBtn.textContent = '🔧 一键修复所有错�?;
             }
         }
 
@@ -2364,7 +2364,7 @@
                     }
                 });
             } else {
-                // 单文件模�?
+                // 单文件模�?
                 Object.keys(corrections).forEach(index => {
                     acceptCorrection(parseInt(index));
                 });
@@ -2383,7 +2383,7 @@
                     }
                 });
             } else {
-                // 单文件模�?
+                // 单文件模�?
                 Object.keys(corrections).forEach(index => {
                     rejectCorrection(parseInt(index));
                 });
@@ -2429,7 +2429,7 @@
         function applyFixesToContent(content, fixes) {
             let modifiedContent = content;
             
-            // 按位置倒序排列，避免位置偏�?
+            // 按位置倒序排列，避免位置偏�?
             const sortedFixes = fixes.sort((a, b) => b.position - a.position);
             
             for (const fix of sortedFixes) {
@@ -2459,7 +2459,7 @@
             });
 
             if (acceptedFixes.length === 0) {
-                showResult('error', '没有接受的修�?);
+                showResult('error', '没有接受的修�?);
                 return;
             }
 
@@ -2473,12 +2473,12 @@
                     
                     const modifiedContent = applyFixesToContent(content, acceptedFixes);
                     document.getElementById('textInput').value = modifiedContent;
-                    showResult('success', `修正已应用到文本框！共应�?${acceptedFixes.length} 个修正`);
+                    showResult('success', `修正已应用到文本框！共应�?${acceptedFixes.length} 个修正`);
                     return;
                 } else {
                     // 文件模式：替换原文件
                     if (!selectedFile) {
-                        showResult('error', '没有选择的文�?);
+                        showResult('error', '没有选择的文�?);
                         return;
                     }
                     
@@ -2518,7 +2518,7 @@
                     document.body.removeChild(downloadLink);
                     URL.revokeObjectURL(url);
                     
-                    showResult('success', `文件已更新！共应�?${result.appliedFixes} 个修正。请查看下载的文件`);
+                    showResult('success', `文件已更新！共应�?${result.appliedFixes} 个修正。请查看下载的文件`);
                 } else {
                     throw new Error(result.message || '应用修正失败');
                 }
@@ -2529,7 +2529,7 @@
         }
 
         async function handleFolderApplyFixes() {
-            // 按文件分组整理修�?
+            // 按文件分组整理修�?
             const fileFixesMap = new Map();
             
             Object.keys(corrections).forEach(correctionKey => {
@@ -2558,7 +2558,7 @@
             });
 
             if (fileFixesMap.size === 0) {
-                showResult('error', '没有接受的修�?);
+                showResult('error', '没有接受的修�?);
                 return;
             }
 
@@ -2570,7 +2570,7 @@
                     let content;
                     
                     if (window.selectedFolderFiles) {
-                        // 浏览器选择的文件：读取内容并下载替�?
+                        // 浏览器选择的文件：读取内容并下载替�?
                         const file = window.selectedFolderFiles.find(f => 
                             (f.webkitRelativePath || f.name) === fileData.file.path
                         );
@@ -2616,7 +2616,7 @@
                             throw new Error(`无法找到文件: ${fileData.file.path}`);
                         }
                     } else {
-                        // 服务器路径文件：直接替换原文�?
+                        // 服务器路径文件：直接替换原文�?
                         const response = await fetch('/read-file', {
                             method: 'POST',
                             headers: {
@@ -2634,7 +2634,7 @@
                         const fileResult = await response.json();
                         content = fileResult.content;
 
-                        // 直接替换原文�?
+                        // 直接替换原文�?
                         const applyResponse = await fetch('/apply-fixes-inplace', {
                             method: 'POST',
                             headers: {
@@ -2668,12 +2668,12 @@
                     const serverFiles = results.filter(r => !window.selectedFolderFiles);
                     
                     if (browserFiles.length > 0 && serverFiles.length === 0) {
-                        showResult('success', `文件已更新！共处�?${results.length} 个文件，应用 ${totalFixes} 个修正。请查看下载的文件`);
+                        showResult('success', `文件已更新！共处�?${results.length} 个文件，应用 ${totalFixes} 个修正。请查看下载的文件`);
                     } else {
-                        showResult('success', `文件已直接更新！共处�?${results.length} 个原文件，应�?${totalFixes} 个修正`);
+                        showResult('success', `文件已直接更新！共处�?${results.length} 个原文件，应�?${totalFixes} 个修正`);
                     }
                 } else {
-                    showResult('error', '没有成功应用的修�?);
+                    showResult('error', '没有成功应用的修�?);
                 }
 
             } catch (error) {
@@ -2734,7 +2734,7 @@
                 if (e.target === this) closeSettingsModal();
             });
             
-            // 选项卡切�?
+            // 选项卡切�?
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     switchSettingsTab(this.dataset.tab);
@@ -2761,13 +2761,13 @@
             // 重置设置
             document.getElementById('resetSettings').addEventListener('click', resetSettings);
             
-            // 加载保存的设�?
+            // 加载保存的设�?
             loadSettings();
         }
         
         function openSettingsModal() {
             document.getElementById('settingsModal').classList.add('show');
-            // 刷新当前设置到界�?
+            // 刷新当前设置到界�?
             refreshSettingsUI();
         }
         
@@ -2776,7 +2776,7 @@
         }
         
         function switchSettingsTab(tab) {
-            // 更新选项卡状�?
+            // 更新选项卡状�?
             document.querySelectorAll('.settings-tabs .tab-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.tab === tab);
             });
@@ -2792,7 +2792,7 @@
             const select = document.getElementById(`${provider}-model`);
             
             btn.disabled = true;
-            btn.textContent = '�?;
+            btn.textContent = '�?;
             
             try {
                 const config = getCurrentConfig(provider);
@@ -2846,9 +2846,9 @@
             const status = document.getElementById(`${provider}-status`);
             
             btn.disabled = true;
-            btn.textContent = '测试�?..';
+            btn.textContent = '测试�?..';
             status.className = 'status-indicator testing';
-            status.textContent = '测试�?..';
+            status.textContent = '测试�?..';
             
             try {
                 const config = getCurrentConfig(provider);
@@ -2893,24 +2893,24 @@
         }
         
         function saveSettings() {
-            // 收集所有设�?
+            // 收集所有设�?
             ['lmstudio', 'ollama', 'openai'].forEach(provider => {
                 llmConfigs[provider] = getCurrentConfig(provider);
             });
             
-            // 保存到本地存�?
+            // 保存到本地存�?
             localStorage.setItem('llmConfigs', JSON.stringify(llmConfigs));
             
             // 显示保存成功消息
-            showResult('success', '设置已保�?);
+            showResult('success', '设置已保�?);
             
             // 关闭模态框
             closeSettingsModal();
         }
         
         function resetSettings() {
-            if (confirm('确定要重置所有设置吗？这将清除所有自定义配置�?)) {
-                // 重置为默认�?
+            if (confirm('确定要重置所有设置吗？这将清除所有自定义配置�?)) {
+                // 重置为默认�?
                 llmConfigs = {
                     lmstudio: {
                         endpoint: 'http://localhost:1234',
@@ -2936,7 +2936,7 @@
                 // 刷新界面
                 refreshSettingsUI();
                 
-                showResult('success', '设置已重�?);
+                showResult('success', '设置已重�?);
             }
         }
         
@@ -2945,7 +2945,7 @@
                 const saved = localStorage.getItem('llmConfigs');
                 if (saved) {
                     const savedConfigs = JSON.parse(saved);
-                    // 合并设置，保留默认�?
+                    // 合并设置，保留默认�?
                     Object.keys(llmConfigs).forEach(provider => {
                         if (savedConfigs[provider]) {
                             llmConfigs[provider] = { ...llmConfigs[provider], ...savedConfigs[provider] };
@@ -2973,7 +2973,7 @@
                 // 重置状态指示器
                 const status = document.getElementById(`${provider}-status`);
                 status.className = 'status-indicator disconnected';
-                status.textContent = '未连�?;
+                status.textContent = '未连�?;
             });
         }
         

@@ -16,7 +16,7 @@
     <!-- iOS 图标 -->
     <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
     
-    <title>文件合并转换�?/title>
+    <title>文件合并转换器</title>
     <style>
         * {
             margin: 0;
@@ -481,11 +481,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📚 文件合并�?/h1>
-            <p>智能合并多个文件并转换为专业PDF文档（无限制版本�?/p>
+            <h1>📚 文件合并器</h1>
+            <p>智能合并多个文件并转换为专业PDF文档（无限制版本）</p>
         </div>
 
-        <!-- 主功能区�?-->
+        <!-- 主功能区域 -->
         <div class="main-card">
             <div class="card-header">
                 <h2>🔗 文件合并与转换（无限制）</h2>
@@ -503,12 +503,12 @@
                             📄 选择文件
                         </button>
                         <button class="btn btn-primary btn-small" onclick="document.getElementById('folderInput').click()">
-                            📁 选择文件�?
+                            📁 选择文件夹
                         </button>
                     </div>
                 </div>
 
-                <!-- 状态消�?-->
+                <!-- 状态消息 -->
                 <div id="statusMessage" class="status-message"></div>
 
                 <!-- 文件列表 -->
@@ -516,7 +516,7 @@
                     <div class="file-list-header" onclick="mergeGUI.toggleFileList()">
                         <div class="file-list-title">
                             <span class="collapse-icon" id="collapseIcon">🔽</span>
-                            <span>📋 已选择的文�?/span>
+                            <span>📋 已选择的文件</span>
                             <span class="file-count-badge" id="fileCountBadge">0</span>
                         </div>
                         <div class="file-actions">
@@ -538,7 +538,7 @@
                     <h3>🎨 PDF样式设置</h3>
                     <div class="style-grid">
                         <div class="form-group">
-                            <label class="form-label">输出文件�?/label>
+                            <label class="form-label">输出文件名</label>
                             <input type="text" id="outputName" class="form-input" placeholder="merged-document.pdf" />
                         </div>
                         <div class="form-group">
@@ -547,13 +547,13 @@
                                 <option value="small">小号</option>
                                 <option value="medium">中号</option>
                                 <option value="large" selected>大号</option>
-                                <option value="huge">特大�?/option>
+                                <option value="huge">特大</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label class="form-label">中文字体</label>
                             <select id="chineseFont" class="form-select">
-                                <option value="auto" selected>自动检�?/option>
+                                <option value="auto" selected>自动检测</option>
                                 <option value="songti">宋体</option>
                                 <option value="heiti">黑体</option>
                                 <option value="kaiti">楷体</option>
@@ -569,7 +569,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">行间�?/label>
+                            <label class="form-label">行间距</label>
                             <select id="lineSpacing" class="form-select">
                                 <option value="tight">紧密</option>
                                 <option value="normal" selected>标准</option>
@@ -603,7 +603,7 @@
                     </div>
                 </div>
 
-                <!-- 进度�?-->
+                <!-- 进度条 -->
                 <div id="progressContainer" class="progress-container">
                     <div class="progress-bar">
                         <div id="progressFill" class="progress-fill"></div>
@@ -613,7 +613,7 @@
                         正在渲染公式: <span id="formulaCount">0</span> / <span id="totalFormulas">0</span>
                     </div>
                     <div id="phaseProgress" style="text-align: center; margin-top: 5px; font-size: 0.85em; color: #888; display: none;">
-                        当前阶段: <span id="currentPhase">准备�?/span>
+                        当前阶段: <span id="currentPhase">准备中</span>
                     </div>
                 </div>
 
@@ -624,7 +624,7 @@
                         合并并转换为PDF
                     </button>
                     <button id="clearBtn" class="btn btn-danger btn-small" style="display: none; margin-left: 10px;">
-                        <span class="icon">🗑�?/span>
+                        <span class="icon">🗑️</span>
                         清空文件
                     </button>
                 </div>
@@ -669,7 +669,7 @@
                     this.ws = new WebSocket(wsUrl);
                     
                     this.ws.onopen = () => {
-                        console.log('WebSocket连接已建�?);
+                        console.log('WebSocket连接已建立');
                         this.reconnectAttempts = 0;
                     };
                     
@@ -683,7 +683,7 @@
                     };
                     
                     this.ws.onclose = () => {
-                        console.log('WebSocket连接已关�?);
+                        console.log('WebSocket连接已关闭');
                         this.attemptReconnect();
                     };
                     
@@ -720,12 +720,12 @@
                 const phaseProgress = document.getElementById('phaseProgress');
                 const currentPhase = document.getElementById('currentPhase');
 
-                // 更新进度�?
+                // 更新进度条
                 if (data.progress !== undefined) {
                     progressFill.style.width = data.progress + '%';
                 }
 
-                // 更新主要状态文�?
+                // 更新主要状态文本
                 if (data.message) {
                     progressText.textContent = data.message;
                 }
@@ -814,7 +814,7 @@
                         const entry = item.webkitGetAsEntry();
                         if (entry) {
                             if (entry.isDirectory) {
-                                // 处理文件�?
+                                // 处理文件夹
                                 const folderFiles = await this.readDirectory(entry);
                                 files.push(...folderFiles);
                             } else {
@@ -849,7 +849,7 @@
                             const file = await new Promise((resolve) => {
                                 entry.file(resolve);
                             });
-                            // 添加文件夹路径信�?
+                            // 添加文件夹路径信息
                             file.folderPath = entry.fullPath;
                             files.push(file);
                         } else if (entry.isDirectory) {
@@ -864,20 +864,20 @@
             }
 
             async handleFolderFiles(fileList) {
-                console.log('文件夹上�?', Array.from(fileList).map(f => ({
+                console.log('文件夹上传', Array.from(fileList).map(f => ({
                     name: f.name,
                     path: f.webkitRelativePath,
                     size: f.size
                 })));
 
                 if (fileList.length === 0) {
-                    this.showMessage('文件夹为�?, 'error');
+                    this.showMessage('文件夹为空', 'error');
                     return;
                 }
 
                 this.showMessage(`文件夹中找到 ${fileList.length} 个文件，正在上传...`, 'info');
                 
-                // 为文件添加路径信息用于显�?
+                // 为文件添加路径信息用于显示
                 Array.from(fileList).forEach(file => {
                     file.folderPath = file.webkitRelativePath;
                 });
@@ -888,7 +888,7 @@
             async handleFiles(fileList) {
                 const newFiles = Array.from(fileList);
 
-                console.log('选择的文�?', newFiles.map(f => ({
+                console.log('选择的文件', newFiles.map(f => ({
                     name: f.name,
                     type: f.type,
                     size: f.size
@@ -903,7 +903,7 @@
             }
 
             async uploadFiles(fileList) {
-                console.log('准备上传的文�?', fileList.map(f => ({
+                console.log('准备上传的文件', fileList.map(f => ({
                     name: f.name,
                     type: f.type,
                     size: f.size,
@@ -919,19 +919,19 @@
                         formData.append('markdownFiles', file);
                     });
 
-                    console.log('发送上传请�?..');
+                    console.log('发送上传请求..');
                     const response = await fetch('/upload', {
                         method: 'POST',
                         body: formData
                     });
 
-                    console.log('响应状�?', response.status);
-                    console.log('响应�?', response.headers.get('content-type'));
+                    console.log('响应状态', response.status);
+                    console.log('响应头', response.headers.get('content-type'));
 
                     if (!response.ok) {
                         const errorText = await response.text();
-                        console.error('服务器错误响�?', errorText);
-                        throw new Error(`服务器错�?${response.status}: ${errorText}`);
+                        console.error('服务器错误响应', errorText);
+                        throw new Error(`服务器错误${response.status}: ${errorText}`);
                     }
 
                     const result = await response.json();
@@ -997,7 +997,7 @@
             sortFiles() {
                 this.files.sort((a, b) => this.naturalSort(a.originalName, b.originalName));
                 this.updateFileList();
-                this.showMessage('文件已重新排�?, 'info');
+                this.showMessage('文件已重新排序', 'info');
             }
 
             naturalSort(a, b) {
@@ -1062,7 +1062,7 @@
                         </div>
                         <div class="file-actions">
                             <button class="btn btn-danger btn-small" onclick="mergeGUI.removeFile(${index})">
-                                <span class="icon">🗑�?/span>
+                                <span class="icon">🗑️</span>
                                 删除
                             </button>
                         </div>
@@ -1073,7 +1073,7 @@
             removeFile(index) {
                 this.files.splice(index, 1);
                 this.updateFileList();
-                this.showMessage('文件已移�?, 'info');
+                this.showMessage('文件已移除', 'info');
             }
 
             reorderFiles(draggedElement, targetElement) {
@@ -1085,7 +1085,7 @@
                     this.files.splice(draggedIndex, 1);
                     this.files.splice(targetIndex, 0, draggedFile);
                     this.updateFileList();
-                    this.showMessage('文件顺序已更�?, 'info');
+                    this.showMessage('文件顺序已更新', 'info');
                 }
             }
 
@@ -1101,12 +1101,12 @@
                 const phaseProgress = document.getElementById('phaseProgress');
 
                 convertBtn.disabled = true;
-                convertBtn.innerHTML = '<div class="loading"></div> 转换�?..';
+                convertBtn.innerHTML = '<div class="loading"></div> 转换中..';
                 progressContainer.style.display = 'block';
                 formulaProgress.style.display = 'none';
                 phaseProgress.style.display = 'none';
 
-                // 初始化进度显�?
+                // 初始化进度显示
                 progressFill.style.width = '0%';
                 progressText.textContent = '准备转换...';
 
@@ -1127,7 +1127,7 @@
 
                     const result = await response.json();
 
-                    // 确保最终进度显�?
+                    // 确保最终进度显示
                     progressFill.style.width = '100%';
                     progressText.textContent = '转换完成!';
                     formulaProgress.style.display = 'none';
@@ -1135,7 +1135,7 @@
 
                     if (result.success) {
                         this.showMessage(
-                            `PDF转换成功! 已合�?${result.fileCount} 个文件`, 
+                            `PDF转换成功! 已合并${result.fileCount} 个文件`, 
                             'success'
                         );
                         
@@ -1202,7 +1202,7 @@
                 this.updateFileList();
                 document.getElementById('fileInput').value = '';
                 document.getElementById('folderInput').value = '';
-                this.showMessage('文件已清�?, 'info');
+                this.showMessage('文件已清空', 'info');
             }
 
             async loadHistory() {
@@ -1237,7 +1237,7 @@
                         <div class="history-info">
                             <div class="history-name">${file.name}</div>
                             <div class="history-meta">
-                                ${this.formatFileSize(file.size)} �?
+                                ${this.formatFileSize(file.size)} · 
                                 ${new Date(file.created).toLocaleString('zh-CN')}
                             </div>
                         </div>
@@ -1247,7 +1247,7 @@
                                 下载
                             </a>
                             <button class="btn btn-danger btn-small" onclick="mergeGUI.deleteHistoryFile('${file.name}')">
-                                <span class="icon">🗑�?/span>
+                                <span class="icon">🗑️</span>
                                 删除
                             </button>
                         </div>
@@ -1256,7 +1256,7 @@
             }
 
             async deleteHistoryFile(filename) {
-                if (!confirm('确定要删除这个文件吗�?)) return;
+                if (!confirm('确定要删除这个文件吗？')) return;
 
                 try {
                     const response = await fetch(`/history/${encodeURIComponent(filename)}`, {
@@ -1265,7 +1265,7 @@
 
                     const result = await response.json();
                     if (result.success) {
-                        this.showMessage('文件已删�?, 'success');
+                        this.showMessage('文件已删除', 'success');
                         this.loadHistory();
                     } else {
                         this.showMessage('删除失败: ' + result.error, 'error');
@@ -1295,7 +1295,7 @@
             }
         }
 
-        // 初始化应�?
+        // 初始化应用
         const mergeGUI = new MergeGUI();
     </script>
     
