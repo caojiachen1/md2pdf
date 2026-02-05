@@ -98,7 +98,10 @@ export class MarkdownPdfGUI {
 
         const options = this.parseConvertOptions(req.body);
         const inputPath = req.file.path;
-        const outputFilename = this.generateOutputFilename(req.file.originalname, options.format);
+        
+        // 修正中文文件名乱码问题：multer 默认按 latin1 编码，需手动转为 utf8
+        const originalName = Buffer.from(req.file.originalname, 'latin1').toString('utf8');
+        const outputFilename = this.generateOutputFilename(originalName, options.format);
         const outputPath = path.join(this.outputDir, outputFilename);
 
         await ensureDir(this.outputDir);

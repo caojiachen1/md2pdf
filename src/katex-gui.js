@@ -84,11 +84,13 @@ export class KatexCheckGUI {
         }
 
         const content = await fs.readFile(req.file.path, 'utf-8');
-        const results = await this.checkMathFormulas(content, req.file.originalname);
+        // 修正中文文件名乱码问题：multer 默认按 latin1 编码，需手动转为 utf8
+        const originalName = Buffer.from(req.file.originalname, 'latin1').toString('utf8');
+        const results = await this.checkMathFormulas(content, originalName);
         
         res.json({
           success: true,
-          filename: req.file.originalname,
+          filename: originalName,
           results: results,
           timestamp: Date.now()
         });
