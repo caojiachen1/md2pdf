@@ -42,7 +42,7 @@ export class KatexCheckGUI {
     // 文件上传配置
     const storage = multer.diskStorage({
       destination: async (req, file, cb) => {
-        await this.ensureDir(this.uploadsDir);
+        await ensureDir(this.uploadsDir);
         cb(null, this.uploadsDir);
       },
       filename: (req, file, cb) => {
@@ -382,7 +382,7 @@ export class KatexCheckGUI {
           // 单文件或文本模式：生成新文件（保持原有行为）
           const outputFilename = this.generateFixedFilename(req.body.filename || 'untitled.md');
           const outputPath = path.join(this.outputDir, outputFilename);
-          await this.ensureDir(this.outputDir);
+          await ensureDir(this.outputDir);
           await fs.writeFile(outputPath, modifiedContent, 'utf-8');
 
           res.json({
