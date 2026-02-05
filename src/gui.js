@@ -55,7 +55,7 @@ export class MarkdownPdfGUI {
     // 文件上传配置
     const storage = multer.diskStorage({
       destination: async (req, file, cb) => {
-        await this.ensureDir(this.uploadsDir);
+        await ensureDir(this.uploadsDir);
         cb(null, this.uploadsDir);
       },
       filename: (req, file, cb) => {
@@ -101,7 +101,7 @@ export class MarkdownPdfGUI {
         const outputFilename = this.generateOutputFilename(req.file.originalname, options.format);
         const outputPath = path.join(this.outputDir, outputFilename);
 
-        await this.ensureDir(this.outputDir);
+        await ensureDir(this.outputDir);
 
         // 读取文件内容用于预览
         const content = await fs.readFile(inputPath, 'utf-8');
