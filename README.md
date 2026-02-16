@@ -286,20 +286,6 @@ This application now supports Progressive Web App (PWA) features:
 2. Click the install icon (🔗) in the address bar
 3. Click "Install"
 
-### Generate PWA Icons
-```bash
-# Method 1: Browser-based (no dependencies)
-npm run gui
-# Visit http://localhost:3000/icon-generator.html
-# Click "生成图标" and "下载所有图标"
-
-# Method 2: Node.js script (requires canvas)
-npm install canvas
-node generate-icons.js
-```
-
-For detailed PWA documentation, see [PWA-README.md](./PWA-README.md)
-
 ## Project Structure
 
 ```
